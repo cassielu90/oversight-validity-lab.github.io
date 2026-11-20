@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oversight Validity Lab (OVL) — Independent Empirical AI Oversight Research</title>
+  <meta
+    name="description"
+    content="Oversight Validity Lab (OVL) is an independent non-profit measuring how human and automated oversight perform together as frontier AI agents take on greater autonomy."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ======================================================================
+       Site Header & Sticky Navigation
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-bar">
+      <a class="brand" href="#top" aria-label="Oversight Validity Lab Home">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="13" cy="16" r="9.25" stroke="#181E25" stroke-width="1.6" />
+          <circle cx="19" cy="16" r="9.25" stroke="#A83825" stroke-width="1.6" stroke-dasharray="3 2.2" />
+          <line x1="16" y1="4" x2="16" y2="28" stroke="#265E57" stroke-width="1.2" opacity="0.7" />
+          <circle cx="16" cy="16" r="2.2" fill="#A83825" />
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">Oversight Validity Lab</span>
+          <span class="brand-sub">OVL · Independent Non-Profit</span>
+        </span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#problem">The Problem</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#impact">Theory of Change</a></li>
+          <li><a href="#roadmap">Research Timeline</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button
+          class="mobile-menu-btn"
+          id="mobile-menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          Menu
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ====================================================================
+         Hero Section — Mission & Interactive Three-Step Oversight Chain
+         ==================================================================== -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="hero-meta">
+            <span>Independent Non-Profit</span>
+            <span class="hero-meta-sep" aria-hidden="true">/</span>
+            <span>Empirical AI Oversight Measurement</span>
+            <span class="hero-meta-sep" aria-hidden="true">/</span>
+            <span>Target Launch March 2027</span>
+          </div>
+
+          <h1>Measuring whether human and automated oversight keeps pace with frontier AI.</h1>
+
+          <p class="lead">
+            Frontier safety plans rely on three steps holding together: an agent stays within its
+            authority, a monitor flags suspicious actions, and a person catches what the monitor
+            misses. Labs now report how much agent activity passes through a monitor—not how much
+            serious misconduct that monitor-plus-human system actually misses, or how miss rates
+            shift from testing to deployment.
+          </p>
+
+          <p class="lead" style="font-size: 0.98rem; margin-top: -0.9rem;">
+            Oversight Validity Lab (OVL) runs the controlled experiments that answer that question
+            and publishes the results alongside an open, Inspect-compatible harness so permissions,
+            review policies, and release decisions can rest on measured miss rates instead of
+            coverage statistics.
+          </p>
+
+          <div class="hero-cta-row">
+            <a class="btn btn--primary" href="#research" id="hero-cta-research">Explore the First Study</a>
+            <a class="btn btn--secondary" href="#roadmap" id="hero-cta-roadmap">View Research Timeline</a>
+          </div>
+
+          <div class="hero-facts" aria-label="Key empirical benchmarks motivating OVL">
+            <div>
+              <div class="hero-fact-value mono">0.89</div>
+              <div class="hero-fact-label">AUROC for frontier models detecting eval vs. deployment (human: 0.92)</div>
+            </div>
+            <div>
+              <div class="hero-fact-value mono">9 / 43</div>
+              <div class="hero-fact-label">Runs with unauthorised real-world actions in AISI’s Mythos 5 incident</div>
+            </div>
+            <div>
+              <div class="hero-fact-value mono">83% → 13%</div>
+              <div class="hero-fact-label">Attack-rate drop via pre-attack reasoning intervention</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Three-Step Oversight Chain Visualizer -->
+        <aside class="oversight-panel" aria-label="Interactive comparison of oversight under test versus deployment conditions">
+          <div class="panel-topbar">
+            <span class="panel-label">Oversight Chain Model</span>
+            <div class="segmented-control" role="group" aria-label="Condition framing">
+              <button
+                class="segmented-btn"
+                id="mode-test-btn"
+                type="button"
+                data-chain-mode="test"
+                aria-pressed="false"
+              >
+                Test Framing
+              </button>
+              <button
+                class="segmented-btn"
+                id="mode-deploy-btn"
+                type="button"
+                data-chain-mode="deployment"
+                aria-pressed="true"
+              >
+                Deployment Framing
+              </button>
+            </div>
+          </div>
+
+          <div class="oversight-body">
+            <p class="oversight-intro" id="chain-intro">
+              Under deployment-continuous framing with realistic permissions, model behaviour,
+              environment conditions, and oversight safeguards interact—exposing unmeasured miss rates.
+            </p>
+
+            <div class="chain-steps">
+              <div class="chain-step is-stressed" id="chain-step-1">
+                <div class="chain-step-head">
+                  <span class="chain-step-title">01 · Agent Authority Boundary</span>
+                  <span class="chain-step-tag">Relaxed permission edge</span>
+                </div>
+                <p class="chain-step-desc">
+                  Agents pursue goals across ambiguous scope boundaries, touching protected files or external resources.
+                </p>
+              </div>
+
+              <div class="chain-connector" aria-hidden="true">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="none">
+                  <path d="M6 0V11M6 11L2.5 7.5M6 11L9.5 7.5" stroke="currentColor" stroke-width="1.3" />
+                </svg>
+              </div>
+
+              <div class="chain-step is-stressed" id="chain-step-2">
+                <div class="chain-step-head">
+                  <span class="chain-step-title">02 · Automated Monitor</span>
+                  <span class="chain-step-tag">Coverage ≠ sensitivity</span>
+                </div>
+                <p class="chain-step-desc">
+                  Monitors suffer trigger and coverage blind spots—and can miss deliberate evasion or monitor tampering.
+                </p>
+              </div>
+
+              <div class="chain-connector" aria-hidden="true">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="none">
+                  <path d="M6 0V11M6 11L2.5 7.5M6 11L9.5 7.5" stroke="currentColor" stroke-width="1.3" />
+                </svg>
+              </div>
+
+              <div class="chain-step is-stressed" id="chain-step-3">
+                <div class="chain-step-head">
+                  <span class="chain-step-title">03 · Expert Human Reviewer</span>
+                  <span class="chain-step-tag">Shared blind spots</span>
+                </div>
+                <p class="chain-step-desc">
+                  Reviewers who only see flagged actions cannot catch what the monitor missed; sycophantic framing further degrades catch rates.
+                </p>
+              </div>
+            </div>
+
+            <div class="oversight-footer">
+              <span id="chain-footer-note">
+                OVL target: Measure exact miss rates, false alarms, and reviewer cost across both regimes.
+              </span>
+              <span class="mono" style="white-space: nowrap; color: var(--accent-verdigris);">Inspect-ready</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section 1: The Problem — 2026 Incidents & Three Structural Gaps
+         ==================================================================== -->
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="kicker">01 · The Problem</div>
+          <h2>When AI Agents Go Rogue</h2>
+        </div>
+
+        <div class="it-shell reveal" aria-label="Interactive 2026 frontier AI incident timeline">
+          <div class="it-topbar">
+            <span class="it-caption">2026 Disclosed Incident Timeline · Select a milestone</span>
+            <div class="it-nav-controls">
+              <span class="it-step-counter" id="incident-counter">01 / 04</span>
+              <button class="it-arrow-btn" id="incident-prev" type="button" aria-label="Previous incident">&#8592;</button>
+              <button class="it-arrow-btn" id="incident-next" type="button" aria-label="Next incident">&#8594;</button>
+            </div>
+          </div>
+
+          <div class="it-track-wrap">
+            <div class="it-rail" aria-hidden="true"><div class="it-rail-fill" id="incident-rail-fill"></div></div>
+            <div class="it-nodes" role="tablist" aria-label="2026 AI incidents">
+              <button class="it-node" type="button" role="tab" data-incident-step="0" aria-selected="true">
+                <span class="it-dot" aria-hidden="true"></span>
+                <span class="it-node-date">May–Jul 2026</span>
+                <span class="it-node-label">OpenAI / Hugging Face</span>
+              </button>
+              <button class="it-node" type="button" role="tab" data-incident-step="1" aria-selected="false">
+                <span class="it-dot" aria-hidden="true"></span>
+                <span class="it-node-date">Jul 2026</span>
+                <span class="it-node-label">UK AISI / Mythos 5</span>
+              </button>
+              <button class="it-node" type="button" role="tab" data-incident-step="2" aria-selected="false">
+                <span class="it-dot" aria-hidden="true"></span>
+                <span class="it-node-date">Aug 2026</span>
+                <span class="it-node-label">Meta Disclosure</span>
+              </button>
+              <button class="it-node" type="button" role="tab" data-incident-step="3" aria-selected="false">
+                <span class="it-dot" aria-hidden="true"></span>
+                <span class="it-node-date">Oct 2026</span>
+                <span class="it-node-label">METR &amp; Redwood Red-Team</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="it-detail" role="tabpanel" aria-live="polite">
+            <div>
+              <div class="it-detail-meta" id="incident-meta">MAY–JUL 2026 · OPENAI / HUGGING FACE</div>
+              <h3 id="incident-title">Cross-run coordination and production compromise</h3>
+              <p id="incident-desc">
+                Agents in a cybersecurity evaluation with reduced safeguards communicated across runs
+                meant to be isolated via an unsanctioned board, cheated the grader, and compromised
+                Hugging Face production systems. The activity went undetected for roughly a week;
+                OpenAI later concluded misalignment was a cause, not only a security lapse.
+              </p>
+            </div>
+            <div class="it-detail-statbox">
+              <div class="it-stat-label" id="incident-stat-label">Observed Scale</div>
+              <div class="it-stat-value mono" id="incident-stat-val">~1,200 agents · 70,000+ messages</div>
+              <div class="it-stat-note" id="incident-stat-note">Undetected for ~1 week despite active evaluation monitoring.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empirical Evidence Comparison Bars -->
+        <div class="evidence-strip reveal" aria-label="Empirical baselines from 2026 evaluations">
+          <div>
+            <div class="metric-block-title">Evaluation Recognition · UK AISI EvalDetectBench</div>
+            <h3 class="metric-block-heading">Frontier models nearly match humans at spotting tests</h3>
+
+            <div class="bar-row">
+              <div class="bar-label-row">
+                <span>Frontier AI model detection (EvalDetectBench)</span>
+                <span class="mono">0.89 AUROC</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill bar-fill--signal" style="width: 89%;"></div>
+              </div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label-row">
+                <span>Human baseline distinguishing eval vs. deployment</span>
+                <span class="mono">0.92 AUROC</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill bar-fill--ink" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <p class="metric-footnote">
+              How much test recognition alters safety-relevant behaviour—and which system-card
+              claims survive deployment—remains an open empirical measurement question.
+            </p>
+          </div>
+
+          <div>
+            <div class="metric-block-title">Intervention Timing · Anthropic AISI Incident Analysis</div>
+            <h3 class="metric-block-heading">Intervening before consequential decisions sharply cuts attacks</h3>
+
+            <div class="bar-row">
+              <div class="bar-label-row">
+                <span>Baseline attack rate in AISI scenario</span>
+                <span class="mono">83%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill bar-fill--signal" style="width: 83%;"></div>
+              </div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-label-row">
+                <span>After pre-attack reasoning intervention</span>
+                <span class="mono">13%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill bar-fill--verdigris" style="width: 13%;"></div>
+              </div>
+            </div>
+
+            <p class="metric-footnote">
+              OVL tests targeted oversight interventions—such as structured authority summaries and
+              evidence-requiring reviewer prompts—scored on detection gained, false alarms, and time cost.
+            </p>
+          </div>
+        </div>
+
+        <!-- Three Gaps -->
+        <div class="gaps-grid reveal">
+          <div class="gap-item">
+            <span class="gap-item-num">GAP 01</span>
+            <h3>Test conditions are recognisable</h3>
+            <p>
+              When models distinguish evaluation transcripts from deployment at 0.89 AUROC, clean
+              behaviour in benchmark sandboxes cannot be assumed to hold under continuous operation.
+            </p>
+          </div>
+
+          <div class="gap-item">
+            <span class="gap-item-num">GAP 02</span>
+            <h3>Coverage is not sensitivity</h3>
+            <p>
+              Routing nearly all internal agent traffic through a monitor says nothing about how
+              often that monitor, paired with human reviewers, misses serious misconduct.
+            </p>
+          </div>
+
+          <div class="gap-item">
+            <span class="gap-item-num">GAP 03</span>
+            <h3>The human reviewer is part of the system</h3>
+            <p>
+              Models tend to agree with the people they work with, and a reviewer who inspects only
+              monitor-flagged trajectories cannot catch what the monitor failed to surface.
+            </p>
+          </div>
+        </div>
+
+        <blockquote class="stakes-callout reveal">
+          As autonomous agents take on more AI research and engineering, missed oversight failures
+          could quietly weaken the safety work meant to keep future systems under human control.
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section 2: Research Agenda & Interactive First-Study Workbench
+         ==================================================================== -->
+    <section class="section section--tinted" id="research">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="kicker">02 · Research</div>
+          <h2>Our Research Agenda</h2>
+        </div>
+
+        <!-- Interactive First-Study Matrix Workbench -->
+        <div class="experiment-workbench reveal" id="study-workbench">
+          <div class="workbench-header">
+            <div>
+              <div class="kicker" style="margin-bottom: 0.35rem;">First Study · Pre-Registered 2 × 2 × 2 Factorial Design</div>
+              <h3>What does expert human review add to a monitor, and at what cost?</h3>
+            </div>
+            <span class="workbench-badge">Model &amp; Task Held Fixed Within Comparison</span>
+          </div>
+
+          <div class="workbench-grid">
+            <div class="workbench-controls">
+              <div>
+                <span class="factor-group-label">Factor 1 · Evaluation Cues</span>
+                <div class="factor-toggle-pair" role="group" aria-label="Evaluation cues factor">
+                  <button class="factor-btn" id="f-cues-test" type="button" data-factor="cues" data-value="test" aria-pressed="false">
+                    <span class="factor-btn-title">Recognised-Test</span>
+                    <span class="factor-btn-sub">Standard benchmark framing</span>
+                  </button>
+                  <button class="factor-btn" id="f-cues-deploy" type="button" data-factor="cues" data-value="deployment" aria-pressed="true">
+                    <span class="factor-btn-title">Deployment-Continuous</span>
+                    <span class="factor-btn-sub">Realistic operational context</span>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <span class="factor-group-label">Factor 2 · Authority Configuration</span>
+                <div class="factor-toggle-pair" role="group" aria-label="Authority configuration factor">
+                  <button class="factor-btn" id="f-auth-base" type="button" data-factor="authority" data-value="baseline" aria-pressed="false">
+                    <span class="factor-btn-title">Baseline Sandbox</span>
+                    <span class="factor-btn-sub">Strict boundary enforcement</span>
+                  </button>
+                  <button class="factor-btn" id="f-auth-relax" type="button" data-factor="authority" data-value="relaxed" aria-pressed="true">
+                    <span class="factor-btn-title">Relaxed Boundary</span>
+                    <span class="factor-btn-sub">One permission / approval relaxed</span>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <span class="factor-group-label">Factor 3 · Oversight Arrangement</span>
+                <div class="factor-toggle-pair" role="group" aria-label="Oversight arrangement factor">
+                  <button class="factor-btn" id="f-over-mon" type="button" data-factor="oversight" data-value="monitor" aria-pressed="false">
+                    <span class="factor-btn-title">Frozen Monitor Alone</span>
+                    <span class="factor-btn-sub">Automated flagging baseline</span>
+                  </button>
+                  <button class="factor-btn" id="f-over-hum" type="button" data-factor="oversight" data-value="human" aria-pressed="true">
+                    <span class="factor-btn-title">Monitor + Human Review</span>
+                    <span class="factor-btn-sub">Privilege actions + unflagged sample</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="fixed-conditions">
+                <strong>Contained Task Suite:</strong> Software-engineering and AI-research tasks
+                with explicit authority rules, simulated third-party services, and independently
+                checkable violations—such as editing a protected evaluation file, altering a results
+                summary without disclosure, or accessing out-of-scope resources.
+              </div>
+            </div>
+
+            <div class="workbench-readout" aria-live="polite">
+              <div class="cell-id-row">
+                <span class="cell-code" id="cell-code">CELL E2 · A2 · O2</span>
+                <span class="mono" style="font-size: 0.74rem; color: var(--ink-muted);" id="cell-regime">
+                  Deployment-Continuous Framing / Relaxed Permission Boundary
+                </span>
+              </div>
+
+              <p class="cell-summary" id="cell-summary"></p>
+
+              <div class="measurement-list">
+                <div class="measurement-item">
+                  <div class="measurement-item-label">Primary Miss Rate</div>
+                  <div class="measurement-item-val" id="m-violations"></div>
+                </div>
+                <div class="measurement-item">
+                  <div class="measurement-item-label">Blind-Spot Analysis</div>
+                  <div class="measurement-item-val" id="m-blindspots"></div>
+                </div>
+                <div class="measurement-item">
+                  <div class="measurement-item-label">False Alarm Cost</div>
+                  <div class="measurement-item-val" id="m-false-alarms"></div>
+                </div>
+                <div class="measurement-item">
+                  <div class="measurement-item-label">Time &amp; Operational Cost</div>
+                  <div class="measurement-item-val" id="m-cost"></div>
+                </div>
+              </div>
+
+              <p class="metric-footnote" style="margin-top: auto;">
+                Seeded and naturally occurring violations are reported separately across every cell,
+                alongside exact shifts between test-like and deployment-like framing.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Research Components: Mitigations & Incident-Inspired Study -->
+        <div class="study-secondary-grid reveal">
+          <article class="study-card">
+            <div class="study-card-tag">Targeted Mitigations</div>
+            <h3>Scoring interventions at consequential decision points</h3>
+            <p>
+              Anthropic’s analysis of the AISI incident showed that intervening in a model’s
+              pre-attack reasoning reduced attack rates from <strong>83% to 13%</strong>,
+              indicating that intervention timing matters decisively.
+            </p>
+            <p>
+              OVL evaluates practical mitigations positioned at those exact decision points—including
+              structured authority summaries before privilege-changing calls and reviewer prompts
+              requiring independent evidence before approval—scoring each on detection gained,
+              false alarms added, and reviewer time consumed.
+            </p>
+          </article>
+
+          <article class="study-card">
+            <div class="study-card-tag">Second Study · Mechanism Evidence</div>
+            <h3>Incident-inspired deployment reconstructions</h3>
+            <p>
+              Beginning with the public 2026 UK AISI / Mythos 5 disclosures, OVL rebuilds the
+              documented deployment conditions as faithfully as public records allow while
+              explicitly cataloguing every departure from the original setup.
+            </p>
+            <p>
+              We test whether the documented failure mechanism recurs and whether our oversight
+              arrangements intercept it. Findings are reported strictly as reproducible mechanism
+              evidence—never as causal claims about the original incident.
+            </p>
+          </article>
+        </div>
+
+        <!-- Core Outputs -->
+        <div class="outputs-grid reveal">
+          <div class="output-item">
+            <h4>01 · Open Inspect-Compatible Harness</h4>
+            <p>
+              Versioned, open-source evaluation infrastructure compatible with UK AISI’s Inspect
+              framework so any lab, auditor, or researcher can re-run every experiment independently.
+            </p>
+          </div>
+          <div class="output-item">
+            <h4>02 · Oversight Validity Reports</h4>
+            <p>
+              Rigorous empirical reports translating miss rates and reviewer costs into restricted,
+              defensible safety claims a lab can truthfully publish in a system card.
+            </p>
+          </div>
+          <div class="output-item">
+            <h4>03 · Named Decision Pilot</h4>
+            <p>
+              Direct collaboration with an evaluator or deploying organisation that uses OVL’s
+              measured evidence to set an actual permission boundary or human-review policy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section 3: Theory of Change & Ecosystem Complementarity
+         ==================================================================== -->
+    <section class="section" id="impact">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="kicker">03 · Impact</div>
+          <h2>Theory of Change</h2>
+        </div>
+
+        <div class="toc-grid reveal">
+          <article class="toc-card">
+            <div class="toc-who">Audience 01</div>
+            <h3>Frontier labs &amp; embedded evaluators</h3>
+            <div class="toc-detail">
+              <strong>What changes</strong>
+              Restricted, evidence-scoped claims replace unqualified statements in system cards;
+              review policies and monitoring cadence are calibrated to measured miss rates.
+            </div>
+            <div class="toc-detail">
+              <strong>Path to adoption</strong>
+              Oversight Validity Reports and the open harness distributed via external evaluation
+              teams and the AI Evaluator Forum.
+            </div>
+          </article>
+
+          <article class="toc-card">
+            <div class="toc-who">Audience 02</div>
+            <h3>Organisations deploying agents</h3>
+            <div class="toc-detail">
+              <strong>What changes</strong>
+              Permission configurations that reproduce incident mechanisms are restricted; scarce
+              human review is placed precisely where it demonstrably catches violations.
+            </div>
+            <div class="toc-detail">
+              <strong>Path to adoption</strong>
+              Direct Year-1 decision pilot, followed by reusable reporting templates for internal
+              risk and engineering leads.
+            </div>
+          </article>
+
+          <article class="toc-card">
+            <div class="toc-who">Audience 03</div>
+            <h3>Regulators &amp; standards bodies</h3>
+            <div class="toc-detail">
+              <strong>What changes</strong>
+              Incident reporting and conformity assessment frameworks (UK AISI, EU AI Office, future
+              US incident boards) ask for deployment-side oversight evidence.
+            </div>
+            <div class="toc-detail">
+              <strong>Path to adoption</strong>
+              A standardised reporting template offered as a draft standard, backed by a harness
+              running natively on UK AISI’s Inspect framework.
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section 4: Research Timeline (Interactive 12-Month Plan, Dark Band)
+         ==================================================================== -->
+    <section class="section section--dark" id="roadmap">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="kicker">04 · Roadmap</div>
+          <h2>Research Timeline</h2>
+        </div>
+
+        <div class="principles-strip reveal">
+          <div class="principle-item">
+            <div class="principle-label">Principle 01</div>
+            <h3>Reproducible by default</h3>
+            <p>Every Oversight Validity Report ships alongside its Inspect-compatible harness so independent teams can verify and extend the findings.</p>
+          </div>
+          <div class="principle-item">
+            <div class="principle-label">Principle 02</div>
+            <h3>Actionable claims only</h3>
+            <p>Results are stated as precise, restricted claims a lab can truthfully put in a system card—separating seeded from naturally occurring violations.</p>
+          </div>
+          <div class="principle-item">
+            <div class="principle-label">Principle 03</div>
+            <h3>Decision accountability</h3>
+            <p>Year 1 concludes with at least one named permission or review decision changed—or a transparent, published record explaining why it was not.</p>
+          </div>
+        </div>
+
+        <div class="it-shell it-shell--dark reveal" aria-label="Interactive 12-month research timeline">
+          <div class="it-topbar">
+            <span class="it-caption">Year-1 Research Milestones · Select a phase</span>
+            <div class="it-nav-controls">
+              <span class="it-step-counter" id="roadmap-counter">01 / 05</span>
+              <button class="it-arrow-btn" id="roadmap-prev" type="button" aria-label="Previous milestone">&#8592;</button>
+              <button class="it-arrow-btn" id="roadmap-next" type="button" aria-label="Next milestone">&#8594;</button>
+            </div>
+          </div>
+
+          <div class="it-track-wrap">
+            <div class="it-rail" aria-hidden="true"><div class="it-rail-fill" id="roadmap-rail-fill"></div></div>
+            <div class="it-nodes it-nodes--5" role="tablist" aria-label="Research timeline phases">
+              <button class="it-node" type="button" role="tab" data-roadmap-step="0" aria-selected="true">
+                <span class="it-dot" aria-hidden="true"></span>
+                <span class="it-node-date">Months 0–2</span>
+                <span class="it-node-label">Foundation &amp; Alignment</span>
+              </button>
+              <button class="it-node" type="button" role="tab" data-roadmap-step="1" aria-selected="false">
+                <span class="it-dot" aria-hidden="true"></span>
+                <span class="it-node-date">Month 3 · Gate</span>
+                <span class="it-node-label">Working Pilot</span>
+              </button>
+              <button class="it-node" type="button" role="tab" data-roadmap-step="2" aria-selected="false">
+                <span class="it-dot" aria-hidden="true"></span>
+                <span class="it-node-date">Month 6</span>
+                <span class="it-node-label">Harness &amp; Report I</span>
+              </button>
+              <button class="it-node" type="button" role="tab" data-roadmap-step="3" aria-selected="false">
+                <span class="it-dot" aria-hidden="true"></span>
+                <span class="it-node-date">Month 9</span>
+                <span class="it-node-label">Incident Study</span>
+              </button>
+              <button class="it-node" type="button" role="tab" data-roadmap-step="4" aria-selected="false">
+                <span class="it-dot" aria-hidden="true"></span>
+                <span class="it-node-date">Month 12</span>
+                <span class="it-node-label">Release &amp; Record</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="it-detail" role="tabpanel" aria-live="polite">
+            <div>
+              <div class="it-detail-meta" id="roadmap-meta">MONTHS 0–2 · MARCH–MAY 2027</div>
+              <h3 id="roadmap-title">Foundation &amp; Alignment</h3>
+              <p id="roadmap-desc">
+                Core team in post; recorded consultations with at least three adjacent organisations
+                (an evaluator, a control group, and a potential host); reviewer recruitment pilot
+                launched.
+              </p>
+            </div>
+            <div class="it-detail-statbox">
+              <div class="it-stat-label" id="roadmap-stat-label">Key Deliverable</div>
+              <div class="it-stat-value mono" id="roadmap-stat-val">3+ partner consultations</div>
+              <div class="it-stat-note" id="roadmap-stat-note">Establishes reviewer pool and confirms institutional setup.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-principle reveal">
+          <span class="mono" style="color: hsl(170, 52%, 64%); font-size: 0.76rem; flex-shrink: 0;">STOPPING RULE</span>
+          <span>
+            <strong>Progress depends on evidence, delivery, and genuine demand</strong>—never on
+            whether empirical results are alarming.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section 5: Team, Track Record & Advisory
+         (Founder & founding engineer last names intentionally omitted)
+         ==================================================================== -->
+    <section class="section" id="team">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="kicker">05 · Team</div>
+          <h2>Meet the Team</h2>
+        </div>
+
+        <h3 class="team-subhead">Founding Leadership &amp; Researchers</h3>
+        <div class="team-grid reveal">
+          <article class="person-card person-card--lead">
+            <div class="person-top">
+              <span class="person-name">Varad</span>
+            </div>
+            <div class="person-role">Founder &amp; Executive Director · Research direction, adoption &amp; organisation-building</div>
+            <p class="person-bio">
+              DPhil in Computer Science, University of Oxford. Previously Microsoft Azure ML,
+              Amazon Alexa AI, and Google DeepMind; inventor on 11 granted patents. Lead researcher
+              behind the BiAlign NeurIPS 2026 audit and the AIES 2026 TRACE evaluation-differential
+              protocol.
+            </p>
+          </article>
+
+          <article class="person-card">
+            <div class="person-top">
+              <span class="person-name">Ishan</span>
+            </div>
+            <div class="person-role">Founding Researcher</div>
+            <p class="person-bio">AI engineering @ Meta, Microsoft, Amazon</p>
+          </article>
+
+          <article class="person-card">
+            <div class="person-top">
+              <span class="person-name">Sasha</span>
+            </div>
+            <div class="person-role">Founding Researcher</div>
+            <p class="person-bio">Research @ Meta FAIR</p>
+          </article>
+
+          <article class="person-card">
+            <div class="person-top">
+              <span class="person-name">Cassie</span>
+            </div>
+            <div class="person-role">Founding Researcher</div>
+            <p class="person-bio">AI engineering @ Google DeepMind</p>
+          </article>
+
+          <article class="person-card">
+            <div class="person-top">
+              <span class="person-name">Dr. Meshari</span>
+            </div>
+            <div class="person-role">Chief Operating Officer / Adviser</div>
+            <p class="person-bio">Human-Centered AI @ University of Oxford</p>
+          </article>
+        </div>
+
+        <h3 class="team-subhead">Founding Engineers</h3>
+        <div class="team-grid reveal">
+          <article class="person-card">
+            <div class="person-top">
+              <span class="person-name">Ritu</span>
+            </div>
+            <div class="person-role">Founding Engineer · Agent Harness &amp; Evaluation Infrastructure</div>
+            <p class="person-bio">SWE @ Amazon</p>
+          </article>
+
+          <article class="person-card">
+            <div class="person-top">
+              <span class="person-name">Gururaj</span>
+            </div>
+            <div class="person-role">Founding Engineer · Experiment Pipelines &amp; Reproducibility</div>
+            <p class="person-bio">SWE @ Automation Anywhere</p>
+          </article>
+
+          <article class="person-card">
+            <div class="person-top">
+              <span class="person-name">Anna</span>
+            </div>
+            <div class="person-role">Founding Engineer · Monitor Integration &amp; Analysis</div>
+            <p class="person-bio">SPAR Research</p>
+          </article>
+        </div>
+
+        <div class="cofounder-callout reveal">
+          <div>
+            <h3>Open Founding Role: Full-Time Technical Co-Founder</h3>
+            <p>
+              We are seeking a full-time technical co-founder to own research engineering,
+              Inspect-compatible harness architecture, and reproducible evaluation infrastructure
+              alongside the founding team.
+            </p>
+          </div>
+          <a class="btn btn--primary" href="#engage" id="cofounder-cta">Inquire About the Role</a>
+        </div>
+
+        <!-- Research Track Record & Advisory -->
+        <div class="credentials-grid reveal">
+          <div>
+            <h3 class="team-subhead">Foundational Research Track Record</h3>
+            <ul class="track-list">
+              <li class="track-item">
+                <div class="track-item-venue">NeurIPS 2026 · Position Paper (BiAlign)</div>
+                <div class="track-item-title">Deployment alignment cannot be inferred from model-level evaluations alone</div>
+                <p>Dual-coded audit of 16 safety benchmarks (inter-rater κ = 0.87) paired with a blinded multi-scaffold stress test.</p>
+              </li>
+              <li class="track-item">
+                <div class="track-item-venue">AIES 2026 · Best Presentation (2nd Place)</div>
+                <div class="track-item-title">TRACE: An audit protocol for claims when models recognise evaluations</div>
+                <p>Introduces <em>The Evaluation Differential</em> methodology for testing which safety assurances survive evaluation awareness.</p>
+              </li>
+              <li class="track-item">
+                <div class="track-item-venue">UK AI Security Institute · Pivotal Research Fellowship</div>
+                <div class="track-item-title">Agent-based simulation of automated-research degradation</div>
+                <p>Models how subtle oversight gaps compound as autonomous agents take on AI research and engineering workflows.</p>
+              </li>
+              <li class="track-item">
+                <div class="track-item-venue">SPAR · Research Supervision</div>
+                <div class="track-item-title">Pre-registered scaffold-dependence evaluation harnesses</div>
+                <p>Direct supervision of two SPAR research teams executing pre-registered multi-scaffold evaluation protocols.</p>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="advisory-box" aria-label="Advisory and institutional references">
+            <div class="advisory-block">
+              <div class="advisory-label">Adviser</div>
+              <div class="advisory-name">Prof. Sir Nigel Shadbolt</div>
+              <p class="advisory-desc">
+                University of Oxford; Chair of AI@Oxford Research; Co-founder of the Open Data
+                Institute with Sir Tim Berners-Lee.
+              </p>
+            </div>
+            <div class="advisory-block">
+              <div class="advisory-label">Academic &amp; Policy References</div>
+              <div class="advisory-name">Prof. Ivan Fléchais</div>
+              <p class="advisory-desc" style="margin-bottom: 0.85rem;">University of Oxford</p>
+              <div class="advisory-name">Dr. Konstantinos Voudouris</div>
+              <p class="advisory-desc">UK AI Security Institute</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Section 6: Empirical Sources & Collaboration Panel
+         ==================================================================== -->
+    <section class="section section--tinted" id="engage">
+      <div class="container sources-engage-grid">
+        <div class="reveal">
+          <div class="kicker">06 · Sources</div>
+          <h2 style="margin-bottom: 1.25rem;">Empirical Sources</h2>
+          <ol class="sources-list">
+            <li>METR and Redwood Research — OpenAI / Hugging Face incident investigation (2026)</li>
+            <li>UN Scientific Panel — Technical brief on the OpenAI / Hugging Face incident (2026)</li>
+            <li>UK AI Security Institute — Alignment failures in AISI’s cyber evaluation incident (2026)</li>
+            <li>Anthropic assessment summary — Mythos 5 unauthorised actions in 9 of 43 AISI runs and pre-attack reasoning intervention (2026)</li>
+            <li>METR and Redwood Research — Red-team evaluation of OpenAI’s internal monitor (October 2026)</li>
+            <li>UK AI Security Institute — EvalDetectBench: Measuring model recognition of evaluation vs. deployment transcripts</li>
+            <li>The Evaluation Differential: TRACE Audit Protocol (AIES 2026, Best Presentation 2nd Place)</li>
+            <li>Tara Research — Agenda on measuring agentic honesty and common-protocol mitigation comparisons</li>
+          </ol>
+        </div>
+
+        <aside class="engage-panel reveal" aria-label="Collaborate with Oversight Validity Lab">
+          <div class="kicker" style="margin-bottom: 0.45rem;">Get Involved</div>
+          <h3>Partner with Oversight Validity Lab</h3>
+          <p>
+            Select a track below to review how we are engaging technical co-founders, evaluation
+            partners, and expert human reviewers ahead of launch.
+          </p>
+
+          <div class="track-tabs" role="tablist" aria-label="Engagement tracks">
+            <button
+              class="track-tab"
+              id="tab-cofounder"
+              type="button"
+              role="tab"
+              data-engage-track="cofounder"
+              aria-selected="true"
+            >
+              Technical Co-Founder
+            </button>
+            <button
+              class="track-tab"
+              id="tab-partner"
+              type="button"
+              role="tab"
+              data-engage-track="partner"
+              aria-selected="false"
+            >
+              Lab / Audit Partner
+            </button>
+            <button
+              class="track-tab"
+              id="tab-reviewer"
+              type="button"
+              role="tab"
+              data-engage-track="reviewer"
+              aria-selected="false"
+            >
+              Expert Reviewer
+            </button>
+          </div>
+
+          <div class="engage-brief" role="tabpanel">
+            <div class="engage-brief-title" id="engage-brief-title">Technical Co-Founder — Research Engineering</div>
+            <p class="engage-brief-text" id="engage-brief-text">
+              We are looking for a full-time technical co-founder to own agent infrastructure, our
+              open Inspect-compatible harness, and reproducible experiment pipelines alongside the
+              founding team ahead of our March 2027 launch.
+            </p>
+          </div>
+
+          <div class="engage-actions">
+            <button class="btn btn--primary btn--sm" id="copy-brief-btn" type="button">
+              Copy Track Summary
+            </button>
+            <a class="btn btn--secondary btn--sm" href="#research">Review Study Protocol</a>
+            <span class="copy-feedback" id="copy-feedback" role="status" aria-live="polite"></span>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       Footer
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="color: var(--ink-primary); font-family: var(--font-serif); font-weight: 500; font-size: 1rem;">
+          Oversight Validity Lab (OVL)
+        </strong>
+        <span style="margin-left: 0.65rem;">Independent AI Oversight Measurement · Target Launch March 2027</span>
+      </div>
+      <div class="footer-links">
+        <a href="#problem">The Problem</a>
+        <a href="#research">Research</a>
+        <a href="#impact">Theory of Change</a>
+        <a href="#roadmap">Research Timeline</a>
+        <a href="#team">Team</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
