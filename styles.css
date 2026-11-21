@@ -237,6 +237,42 @@ h3 {
   margin-bottom: 0;
 }
 
+.compact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.compact-list li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.89rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+.compact-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.56em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent-signal);
+}
+
+.section--dark .compact-list li {
+  color: var(--ink-on-dark-muted);
+}
+
+.section--dark .compact-list li::before {
+  background-color: hsl(170, 52%, 64%);
+}
+
 /* ==========================================================================
    Header & Navigation
    ========================================================================== */

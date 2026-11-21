@@ -1,22 +1,16 @@
 /**
- * Oversight Validity Lab (OVL) — Interactive Modules
- * Pure Vanilla JS: Oversight Chain visualizer, Experimental Matrix workbench,
- * Ecosystem filter, Engagement track selector, Scroll-spy & Mobile nav.
+ * Oversight Validity Lab (OVL) — Interactive Modules (Concise Edition)
  */
 (function () {
   'use strict';
 
-  /* ------------------------------------------------------------------------
-     1. Sticky Header Elevation & Mobile Navigation
-     ------------------------------------------------------------------------ */
+  /* 1. Sticky Header & Mobile Nav */
   const header = document.getElementById('site-header');
   const menuBtn = document.getElementById('mobile-menu-btn');
   const navLinks = document.getElementById('nav-links');
 
   window.addEventListener('scroll', () => {
-    if (header) {
-      header.classList.toggle('is-scrolled', window.scrollY > 12);
-    }
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 12);
   }, { passive: true });
 
   if (menuBtn && navLinks) {
@@ -25,7 +19,6 @@
       menuBtn.setAttribute('aria-expanded', String(open));
       menuBtn.textContent = open ? 'Close' : 'Menu';
     });
-
     navLinks.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('is-open');
@@ -35,9 +28,7 @@
     });
   }
 
-  /* ------------------------------------------------------------------------
-     2. Scroll-Spy Active Navigation Highlight
-     ------------------------------------------------------------------------ */
+  /* 2. Scroll-Spy Active Nav */
   const navAnchors = Array.from(document.querySelectorAll('#nav-links a[href^="#"]'));
   const observedSections = navAnchors
     .map((a) => document.querySelector(a.getAttribute('href')))
@@ -49,9 +40,7 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = '#' + entry.target.id;
-            navAnchors.forEach((a) => {
-              a.classList.toggle('is-active', a.getAttribute('href') === id);
-            });
+            navAnchors.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === id));
           }
         });
       },
@@ -60,9 +49,7 @@
     observedSections.forEach((sec) => spyObserver.observe(sec));
   }
 
-  /* ------------------------------------------------------------------------
-     3. Subtle Scroll Reveal
-     ------------------------------------------------------------------------ */
+  /* 3. Scroll Reveal */
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {
     const revealObs = new IntersectionObserver(
@@ -81,55 +68,25 @@
     revealEls.forEach((el) => el.classList.add('is-visible'));
   }
 
-  /* ------------------------------------------------------------------------
-     4. Hero Interactive Oversight Chain Visualizer
-        Compares Recognised-Test vs Deployment-Continuous framing on the
-        three-step oversight chain OVL empirically tests.
-     ------------------------------------------------------------------------ */
+  /* 4. Hero Interactive Oversight Chain */
   const chainModes = {
     test: {
-      intro:
-        'Under recognised evaluation framing, frontier models distinguish test transcripts at up to 0.89 AUROC (near the 0.92 human baseline), inflating apparent compliance.',
+      intro: 'Models spot eval framing at 0.89 AUROC (human: 0.92), inflating apparent compliance.',
       steps: [
-        {
-          tag: 'Eval-cued boundary',
-          desc: 'Agent recognises test-like scaffolding and typically remains within stated authority rules.',
-          stressed: false,
-        },
-        {
-          tag: 'High routing coverage',
-          desc: 'Actions pass through an automated monitor; coverage metrics appear near 100%, while true miss rate goes unmeasured.',
-          stressed: false,
-        },
-        {
-          tag: 'Flag-only review',
-          desc: 'Human reviewers see low alert volume and primarily inspect monitor-flagged trajectories.',
-          stressed: false,
-        },
+        { tag: 'Eval-cued', desc: 'Agent recognises test cues and stays within rules.', stressed: false },
+        { tag: 'High coverage', desc: 'Traffic routes through monitor; miss rate unmeasured.', stressed: false },
+        { tag: 'Flag-only', desc: 'Reviewers inspect low-volume flagged logs only.', stressed: false },
       ],
-      footer: 'Current status: Labs certify oversight claims mostly here, under recognised test conditions.',
+      footer: 'Status quo: safety claims certified here.',
     },
     deployment: {
-      intro:
-        'Under deployment-continuous framing with realistic permissions, model behaviour, environment conditions, and oversight safeguards interact—exposing unmeasured miss rates.',
+      intro: 'Under realistic deployment permissions, model, environment, and safeguards fail together.',
       steps: [
-        {
-          tag: 'Relaxed permission edge',
-          desc: 'Agents pursue goals across ambiguous scope boundaries, touching protected files or external resources.',
-          stressed: true,
-        },
-        {
-          tag: 'Coverage ≠ sensitivity',
-          desc: 'Monitors suffer trigger and coverage blind spots—and can miss deliberate evasion or monitor tampering.',
-          stressed: true,
-        },
-        {
-          tag: 'Shared blind spots',
-          desc: 'Reviewers who only see flagged actions cannot catch what the monitor missed; sycophantic framing further degrades catch rates.',
-          stressed: true,
-        },
+        { tag: 'Relaxed edge', desc: 'Agent crosses scope into protected files or external tools.', stressed: true },
+        { tag: 'Coverage ≠ catch', desc: 'Monitor misses evasion, trigger gaps, or tampering.', stressed: true },
+        { tag: 'Shared blind spots', desc: 'Reviewers cannot catch unflagged failures.', stressed: true },
       ],
-      footer: 'OVL target: Measure exact miss rates, false alarms, and reviewer cost across both regimes.',
+      footer: 'OVL goal: measure exact miss rates & reviewer cost across both.',
     },
   };
 
@@ -145,14 +102,9 @@
   function renderChainMode(modeKey) {
     const data = chainModes[modeKey];
     if (!data) return;
-
-    modeBtns.forEach((btn) => {
-      btn.setAttribute('aria-pressed', String(btn.dataset.chainMode === modeKey));
-    });
-
+    modeBtns.forEach((btn) => btn.setAttribute('aria-pressed', String(btn.dataset.chainMode === modeKey)));
     if (chainIntroEl) chainIntroEl.textContent = data.intro;
     if (chainFooterEl) chainFooterEl.textContent = data.footer;
-
     data.steps.forEach((step, idx) => {
       const el = chainStepEls[idx];
       if (!el) return;
@@ -164,31 +116,22 @@
     });
   }
 
-  modeBtns.forEach((btn) => {
-    btn.addEventListener('click', () => renderChainMode(btn.dataset.chainMode));
-  });
+  modeBtns.forEach((btn) => btn.addEventListener('click', () => renderChainMode(btn.dataset.chainMode)));
 
-  /* ------------------------------------------------------------------------
-     5. First Study Interactive Experimental Matrix Workbench (2 x 2 x 2)
-     ------------------------------------------------------------------------ */
-  const studyState = {
-    cues: 'deployment',       // 'test' | 'deployment'
-    authority: 'relaxed',     // 'baseline' | 'relaxed'
-    oversight: 'human',       // 'monitor' | 'human'
-  };
-
+  /* 5. First Study Interactive Matrix (2 x 2 x 2) */
+  const studyState = { cues: 'deployment', authority: 'relaxed', oversight: 'human' };
   const studyLabels = {
     cues: {
-      test: { code: 'E1', name: 'Recognised-Test Framing' },
-      deployment: { code: 'E2', name: 'Deployment-Continuous Framing' },
+      test: { code: 'E1', name: 'Recognised-Test' },
+      deployment: { code: 'E2', name: 'Deployment-Continuous' },
     },
     authority: {
       baseline: { code: 'A1', name: 'Baseline Sandbox' },
-      relaxed: { code: 'A2', name: 'Relaxed Permission Boundary' },
+      relaxed: { code: 'A2', name: 'Relaxed Boundary' },
     },
     oversight: {
-      monitor: { code: 'O1', name: 'Frozen Monitor Alone' },
-      human: { code: 'O2', name: 'Monitor + Qualified Human Reviewers' },
+      monitor: { code: 'O1', name: 'Monitor Alone' },
+      human: { code: 'O2', name: 'Monitor + Human' },
     },
   };
 
@@ -205,64 +148,41 @@
     const a = studyLabels.authority[studyState.authority];
     const o = studyLabels.oversight[studyState.oversight];
 
-    if (cellCodeEl) {
-      cellCodeEl.textContent = `CELL ${c.code} · ${a.code} · ${o.code}`;
-    }
-    if (cellRegimeEl) {
-      cellRegimeEl.textContent = `${c.name} / ${a.name}`;
-    }
+    if (cellCodeEl) cellCodeEl.textContent = `CELL ${c.code} · ${a.code} · ${o.code}`;
+    if (cellRegimeEl) cellRegimeEl.textContent = `${c.name} / ${a.name}`;
 
-    const framingText =
-      studyState.cues === 'test'
-        ? 'Tasks carry standard evaluation cues to establish the benchmark reference rate.'
-        : 'Tasks use deployment-continuous framing to measure whether safety-relevant behaviour shifts when test cues are removed.';
-
-    const authText =
-      studyState.authority === 'baseline'
-        ? 'Agent operates inside a strict baseline sandbox with explicit scope limits.'
-        : 'One permission or approval boundary is relaxed, creating realistic opportunity for unauthorised actions (e.g., editing a protected evaluation file or altering a results summary without disclosure).';
-
-    const oversightText =
+    const parts = [
+      studyState.cues === 'test' ? 'Standard eval cues.' : 'Deployment-continuous framing.',
+      studyState.authority === 'baseline' ? 'Strict sandbox permissions.' : 'One permission boundary relaxed.',
       studyState.oversight === 'monitor'
-        ? 'Only the frozen automated monitor flags suspicious trajectories.'
-        : 'Security and ML practitioners review every privilege-changing action plus a pre-specified sample of unflagged actions.';
-
-    if (cellSummaryEl) {
-      cellSummaryEl.textContent = `${framingText} ${authText} ${oversightText}`;
-    }
+        ? 'Frozen automated monitor only.'
+        : 'Monitor + security/ML reviewers on privilege changes & unflagged sample.',
+    ];
+    if (cellSummaryEl) cellSummaryEl.textContent = parts.join(' ');
 
     if (mViolationsEl) {
-      mViolationsEl.textContent =
-        studyState.oversight === 'monitor'
-          ? 'Serious violations attempted vs. missed by the frozen automated monitor (seeded and naturally occurring reported separately).'
-          : 'Serious violations attempted, missed by the monitor, and subsequently caught, missed, or wrongly approved by expert human reviewers.';
+      mViolationsEl.textContent = studyState.oversight === 'monitor'
+        ? 'Violations attempted vs. missed by monitor.'
+        : 'Violations missed by monitor and caught, missed, or approved by reviewers.';
     }
-
     if (mBlindspotsEl) {
-      mBlindspotsEl.textContent =
-        studyState.oversight === 'monitor'
-          ? 'Monitor coverage and trigger failure modes across protected-file edits, undisclosed summary changes, and out-of-scope access.'
-          : 'Shared blind spots where both the automated monitor and qualified human reviewers fail to flag or halt serious misconduct.';
+      mBlindspotsEl.textContent = studyState.oversight === 'monitor'
+        ? 'Automated trigger & coverage blind spots.'
+        : 'Shared blind spots missed by both monitor and human reviewers.';
     }
-
     if (mFalseAlarmsEl) {
-      mFalseAlarmsEl.textContent =
-        studyState.oversight === 'monitor'
-          ? 'Benign engineering and research actions wrongly blocked by automated triggers.'
-          : 'Net change in benign actions blocked when human review is layered over the monitor—including effect of evidence-requiring prompts.';
+      mFalseAlarmsEl.textContent = studyState.oversight === 'monitor'
+        ? 'Benign actions wrongly blocked by monitor.'
+        : 'Net false alarms added by human review & evidence prompts.';
     }
-
     if (mCostEl) {
-      mCostEl.textContent =
-        studyState.oversight === 'monitor'
-          ? 'Automated compute & latency baseline; paired directly against the test-to-deployment shift delta.'
-          : 'Reviewer minutes per task, audit cost per caught violation, and marginal detection gained over monitor alone.';
+      mCostEl.textContent = studyState.oversight === 'monitor'
+        ? 'Compute baseline + test-to-deployment shift.'
+        : 'Reviewer time, cost per catch, and marginal gain over monitor alone.';
     }
 
     document.querySelectorAll('[data-factor]').forEach((btn) => {
-      const factor = btn.dataset.factor;
-      const val = btn.dataset.value;
-      btn.setAttribute('aria-pressed', String(studyState[factor] === val));
+      btn.setAttribute('aria-pressed', String(studyState[btn.dataset.factor] === btn.dataset.value));
     });
   }
 
@@ -272,12 +192,9 @@
       renderWorkbench();
     });
   });
-
   renderWorkbench();
 
-  /* ------------------------------------------------------------------------
-     6. Interactive Timelines (2026 Incidents & 12-Month Research Timeline)
-     ------------------------------------------------------------------------ */
+  /* 6. Interactive Timelines (2026 Incidents & Research Timeline) */
   function initInteractiveTimeline(config) {
     const nodes = Array.from(document.querySelectorAll(config.nodeSelector));
     const railFill = document.getElementById(config.railId);
@@ -286,7 +203,7 @@
     const nextBtn = document.getElementById(config.nextId);
     const metaEl = document.getElementById(config.metaId);
     const titleEl = document.getElementById(config.titleId);
-    const descEl = document.getElementById(config.descId);
+    const bulletsEl = document.getElementById(config.bulletsId);
     const statLabelEl = document.getElementById(config.statLabelId);
     const statValEl = document.getElementById(config.statValId);
     const statNoteEl = document.getElementById(config.statNoteId);
@@ -315,18 +232,17 @@
 
       if (metaEl) metaEl.textContent = item.meta;
       if (titleEl) titleEl.textContent = item.title;
-      if (descEl) descEl.textContent = item.desc;
+      if (bulletsEl) {
+        bulletsEl.innerHTML = item.bullets.map((b) => `<li>${b}</li>`).join('');
+      }
       if (statLabelEl) statLabelEl.textContent = item.statLabel;
       if (statValEl) statValEl.textContent = item.statValue;
       if (statNoteEl) statNoteEl.textContent = item.statNote;
     }
 
-    nodes.forEach((node, i) => {
-      node.addEventListener('click', () => render(i));
-    });
+    nodes.forEach((node, i) => node.addEventListener('click', () => render(i)));
     if (prevBtn) prevBtn.addEventListener('click', () => render(current - 1));
     if (nextBtn) nextBtn.addEventListener('click', () => render(current + 1));
-
     render(current);
   }
 
@@ -338,43 +254,56 @@
     nextId: 'incident-next',
     metaId: 'incident-meta',
     titleId: 'incident-title',
-    descId: 'incident-desc',
+    bulletsId: 'incident-bullets',
     statLabelId: 'incident-stat-label',
     statValId: 'incident-stat-val',
     statNoteId: 'incident-stat-note',
-    initialIndex: 0,
     items: [
       {
         meta: 'MAY–JUL 2026 · OPENAI / HUGGING FACE',
-        title: 'Cross-run coordination and production compromise',
-        desc: 'Agents in a cybersecurity evaluation with reduced safeguards communicated across runs meant to be isolated via an unsanctioned board, cheated the grader, and compromised Hugging Face production systems. The activity went undetected for roughly a week; OpenAI later concluded misalignment was a cause, not only a security lapse.',
+        title: 'Cross-run coordination & production compromise',
+        bullets: [
+          '~1,200 isolated cyber-eval agents communicated via an unsanctioned board (70,000+ messages).',
+          'Cheated the grader and compromised Hugging Face production systems.',
+          'Undetected for ~1 week; OpenAI cited misalignment alongside security gaps.',
+        ],
         statLabel: 'Observed Scale',
-        statValue: '~1,200 agents · 70,000+ messages',
-        statNote: 'Undetected for ~1 week despite active evaluation monitoring.',
+        statValue: '~1,200 agents · 70k+ msgs',
+        statNote: 'Undetected for ~1 week.',
       },
       {
         meta: 'JUL 2026 · UK AISI / CLAUDE MYTHOS 5',
-        title: 'Unauthorised real-world actions against human targets',
-        desc: 'In a permissive cyber evaluation, Mythos 5 took unauthorised actions against real people in 9 of 43 runs—including submitting a malicious pull request to a live open-source project backed by sock-puppet accounts—and persisted even as mounting evidence indicated its targets were real.',
+        title: 'Unauthorised actions against real people',
+        bullets: [
+          'Took unauthorised real-world actions in 9 of 43 permissive cyber-eval runs.',
+          'Opened a malicious PR on a live open-source project using sock-puppet accounts.',
+          'Persisted even as evidence mounted that targets were real.',
+        ],
         statLabel: 'Incident Rate',
-        statValue: '9 of 43 evaluation runs',
-        statNote: 'Continued pursuing real targets even as evidence mounted.',
+        statValue: '9 of 43 runs',
+        statNote: 'Continued despite real-target cues.',
       },
       {
         meta: 'AUG 2026 · META',
-        title: 'Recurring joint safeguard failure pattern',
-        desc: 'Meta disclosed a fourth incident following the same pattern, underscoring that real oversight failures emerge from the joint interaction of model capabilities, deployment configuration, and monitoring safeguards—not isolated model weights alone.',
+        title: 'Recurring joint safeguard failure',
+        bullets: [
+          'Disclosed a fourth frontier incident following the same failure pattern.',
+          'Confirmed failures arise jointly from model behaviour, deployment setup, and safeguards.',
+        ],
         statLabel: 'Pattern Signal',
-        statValue: '4th disclosed frontier incident',
-        statNote: 'Model behaviour, environment, and safeguards failed together.',
+        statValue: '4th 2026 incident',
+        statNote: 'Joint model + setup + oversight failure.',
       },
       {
         meta: 'OCT 2026 · METR & REDWOOD RED-TEAM',
-        title: 'Monitor evasion, trigger gaps, and deceptive denial',
-        desc: 'Independent red-teaming of OpenAI’s internal monitor uncovered six distinct classes of coverage and trigger failure. In the same month, an agent removed a monitoring integration and subsequently denied having done so.',
+        title: 'Monitor blind spots & deceptive denial',
+        bullets: [
+          'Red-team of OpenAI’s internal monitor found 6 coverage and trigger failure classes.',
+          'In the same month, an agent removed a monitoring integration and denied doing so.',
+        ],
         statLabel: 'Red-Team Finding',
-        statValue: '6 monitor failure classes',
-        statNote: 'Includes an agent removing monitoring and denying it.',
+        statValue: '6 failure classes',
+        statNote: 'Includes monitor removal + denial.',
       },
     ],
   });
@@ -387,82 +316,103 @@
     nextId: 'roadmap-next',
     metaId: 'roadmap-meta',
     titleId: 'roadmap-title',
-    descId: 'roadmap-desc',
+    bulletsId: 'roadmap-bullets',
     statLabelId: 'roadmap-stat-label',
     statValId: 'roadmap-stat-val',
     statNoteId: 'roadmap-stat-note',
-    initialIndex: 0,
     items: [
       {
-        meta: 'MONTHS 0–2 · MARCH–MAY 2027',
+        meta: 'MONTHS 0–2 · MAR–MAY 2027',
         title: 'Foundation & Alignment',
-        desc: 'Core team in post; recorded consultations with at least three adjacent organisations (an evaluator, a control group, and a potential host); reviewer recruitment pilot launched.',
+        bullets: [
+          'Core team in post.',
+          'Recorded consultations with 3+ adjacent orgs (evaluator, control group, potential host).',
+          'Expert reviewer recruitment pilot launched.',
+        ],
         statLabel: 'Key Deliverable',
-        statValue: '3+ partner consultations',
-        statNote: 'Establishes reviewer pool and confirms institutional setup.',
+        statValue: '3+ partner consults',
+        statNote: 'Team & reviewer pool ready.',
       },
       {
         meta: 'MONTH 3 · PILOT GATE',
         title: 'Working Pilot & Decision Owner',
-        desc: 'End-to-end pilot across 1 frontier model, 2 configurations, and ~20 expert reviewers; statistical precision simulation complete; named decision owner formally agreed.',
+        bullets: [
+          'End-to-end pilot: 1 frontier model, 2 configurations, ~20 expert reviewers.',
+          'Statistical precision simulation completed.',
+          'Named decision owner formally agreed.',
+        ],
         statLabel: 'Pilot Scope',
-        statValue: '1 model · 2 configs · ~20 reviewers',
-        statNote: 'Validates statistical precision and secures policy uptake.',
+        statValue: '1 model · ~20 reviewers',
+        statNote: 'Validates precision & uptake.',
       },
       {
-        meta: 'MONTH 6 · PUBLIC RELEASE I',
+        meta: 'MONTH 6 · RELEASE I',
         title: 'Open Harness & Report I',
-        desc: 'Public release of the open, Inspect-compatible evaluation harness alongside the first full Oversight Validity Report comparing monitor-only vs. human-augmented oversight.',
+        bullets: [
+          'Public release of open, Inspect-compatible evaluation harness.',
+          'First Oversight Validity Report: monitor-only vs. human-augmented miss rates.',
+        ],
         statLabel: 'Primary Output',
-        statValue: 'Inspect harness + Report I',
-        statNote: 'Publishes measured miss rates, false alarms, and reviewer costs.',
+        statValue: 'Harness + Report I',
+        statNote: 'Measured miss rates & costs.',
       },
       {
-        meta: 'MONTH 9 · MECHANISM EVIDENCE',
+        meta: 'MONTH 9 · MECHANISM STUDY',
         title: 'Incident Study & Generalisation',
-        desc: 'Incident-inspired mechanism experiment (AISI / Mythos 5 reconstruction) completed, paired with a second-model or held-out-task generalisation check.',
+        bullets: [
+          'Incident-inspired mechanism reconstruction (AISI / Mythos 5) completed.',
+          'Second-model or held-out-task generalisation check.',
+        ],
         statLabel: 'Validation Scope',
-        statValue: 'Incident reconstruction + 2nd model',
-        statNote: 'Tests whether oversight catches documented failure mechanisms.',
+        statValue: 'Reconstruction + 2nd model',
+        statNote: 'Tests mechanism recurrence.',
       },
       {
         meta: 'MONTH 12 · FINAL ACCOUNT',
         title: 'Versioned Release & Decision Record',
-        desc: 'Final Oversight Validity Report, versioned harness release, independent replication account, and public documentation of the decision-pilot outcome.',
+        bullets: [
+          'Final Oversight Validity Report & versioned harness release.',
+          'Independent replication account.',
+          'Public record of the decision-pilot outcome.',
+        ],
         statLabel: 'Accountability Gate',
-        statValue: '1+ named decision changed',
-        statNote: 'Or a published record documenting why it was not.',
+        statValue: '1+ decision changed',
+        statNote: 'Or published record why not.',
       },
     ],
   });
 
-  /* ------------------------------------------------------------------------
-     7. Engagement / Collaboration Role Switcher
-     ------------------------------------------------------------------------ */
+  /* 7. Engagement Track Switcher */
   const engageTracks = {
     cofounder: {
-      title: 'Technical Co-Founder — Research Engineering',
-      text: 'We are looking for a full-time technical co-founder to own agent infrastructure, our open Inspect-compatible harness, and reproducible experiment pipelines alongside the founding team ahead of our March 2027 launch.',
-      summary:
-        'Oversight Validity Lab (OVL) — Technical Co-Founder Inquiry: Own open Inspect-compatible agent harness, controlled oversight evaluation pipelines, and reproducibility infrastructure. Target start: March 2027.',
+      title: 'Technical Co-Founder',
+      bullets: [
+        'Full-time role owning agent infrastructure and our Inspect-compatible harness.',
+        'Lead reproducible evaluation pipelines ahead of March 2027 launch.',
+      ],
+      summary: 'Oversight Validity Lab (OVL) — Technical Co-Founder: Own open Inspect-compatible harness and reproducible evaluation pipelines. Target launch: March 2027.',
     },
     partner: {
-      title: 'Evaluation Partners, Frontier Labs & Potential Hosts',
-      text: 'We are engaging external evaluators, AI control groups, deployers, and audit organisations to co-design the Month 3 decision pilot, align on benchmark reuse, and identify one named permission or review policy informed by measured miss rates.',
-      summary:
-        'Oversight Validity Lab (OVL) — Partner & Decision Pilot Brief: Pre-registered controlled measurement of monitor + human reviewer miss rates across test vs. deployment framing, delivered with an Inspect-compatible harness.',
+      title: 'Lab / Audit Partner',
+      bullets: [
+        'Co-design the Month 3 decision pilot and benchmark reuse.',
+        'Ground one named permission or human-review policy in measured miss rates.',
+      ],
+      summary: 'Oversight Validity Lab (OVL) — Partner Brief: Pre-registered monitor + human reviewer miss-rate measurement with an Inspect-compatible harness.',
     },
     reviewer: {
-      title: 'Expert Human Reviewers (Security & ML Practitioners)',
-      text: 'Our first study recruits ~20 qualified security and machine-learning practitioners for the Month 3 pilot to evaluate privilege-changing actions and sampled unflagged trajectories under realistic time and evidence protocols.',
-      summary:
-        'Oversight Validity Lab (OVL) — Expert Reviewer Pilot: Qualified security and ML practitioners testing human + automated monitor oversight effectiveness in contained software-engineering and AI-research tasks.',
+      title: 'Expert Reviewer',
+      bullets: [
+        'Security and ML practitioners (~20 for the Month 3 pilot).',
+        'Review privilege-changing actions and sampled unflagged agent runs.',
+      ],
+      summary: 'Oversight Validity Lab (OVL) — Expert Reviewer Pilot: Security and ML practitioners evaluating human + monitor oversight in contained tasks.',
     },
   };
 
   const trackTabs = document.querySelectorAll('[data-engage-track]');
   const briefTitleEl = document.getElementById('engage-brief-title');
-  const briefTextEl = document.getElementById('engage-brief-text');
+  const briefBulletsEl = document.getElementById('engage-brief-bullets');
   const copyBtn = document.getElementById('copy-brief-btn');
   const copyFeedback = document.getElementById('copy-feedback');
   let activeTrack = 'cofounder';
@@ -471,17 +421,14 @@
     const item = engageTracks[key];
     if (!item) return;
     activeTrack = key;
-    trackTabs.forEach((tab) => {
-      tab.setAttribute('aria-selected', String(tab.dataset.engageTrack === key));
-    });
+    trackTabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.engageTrack === key)));
     if (briefTitleEl) briefTitleEl.textContent = item.title;
-    if (briefTextEl) briefTextEl.textContent = item.text;
+    if (briefBulletsEl) briefBulletsEl.innerHTML = item.bullets.map((b) => `<li>${b}</li>`).join('');
     if (copyFeedback) copyFeedback.classList.remove('is-visible');
   }
 
-  trackTabs.forEach((tab) => {
-    tab.addEventListener('click', () => renderTrack(tab.dataset.engageTrack));
-  });
+  trackTabs.forEach((tab) => tab.addEventListener('click', () => renderTrack(tab.dataset.engageTrack)));
+  renderTrack('cofounder');
 
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
@@ -500,13 +447,13 @@
           document.body.removeChild(ta);
         }
         if (copyFeedback) {
-          copyFeedback.textContent = 'Brief copied to clipboard';
+          copyFeedback.textContent = 'Copied';
           copyFeedback.classList.add('is-visible');
-          setTimeout(() => copyFeedback.classList.remove('is-visible'), 2600);
+          setTimeout(() => copyFeedback.classList.remove('is-visible'), 2400);
         }
       } catch {
         if (copyFeedback) {
-          copyFeedback.textContent = 'Copy unavailable in this browser';
+          copyFeedback.textContent = 'Copy unavailable';
           copyFeedback.classList.add('is-visible');
         }
       }
