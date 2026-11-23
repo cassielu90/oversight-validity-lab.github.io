@@ -218,7 +218,29 @@
   <p>Anthropic's analysis of the AISI incident found that editing the model's pre-attack reasoning cut the attack rate from 83% to 13%, which suggests the timing of an intervention matters. We test interventions at those points, such as structured authority summaries at consequential decisions and reviewer prompts that require independent evidence before approval, each scored on detection gained, false alarms added and review time used.</p>
   <p>A second experiment takes a failure mechanism documented in a public 2026 incident, starting with AISI / Mythos 5, rebuilds the deployment conditions as far as the disclosures allow, lists every departure from them, and tests whether the mechanism recurs and whether our oversight arrangements catch it. Results are mechanism evidence, not claims about the cause of the original incident.</p>
 </div>
-        
+        <!-- Design notes (separable commit): Sasha's proposed reviewer-protocol additions and open questions; not in the founding summary. -->
+<aside class="design-notes" aria-label="Design notes under discussion">
+  <p class="design-notes-label">Design notes under discussion</p>
+  <div class="design-notes-cols">
+    <div>
+      <h3>Reviewer protocol</h3>
+      <ul class="notes">
+        <li>Consider adding prevalence as a further factor, and report how miss rates change with it.</li>
+        <li>Keep reviewers blind to how many violations were seeded.</li>
+        <li>Run long review sessions to capture fatigue.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Open questions</h3>
+      <ul class="notes">
+        <li>Real-time gating or post-hoc review? Post-hoc review allows paired scoring of the same runs; real-time gating is needed to measure wrongly blocked actions.</li>
+        <li>Should the agent know a human is reviewing?</li>
+        <li>How to check that the framing manipulation worked. No method is yet proven.</li>
+        <li>Monitor access: start from an open-source monitor, release an improved version labs can use, then work toward testing labs' own monitors.</li>
+      </ul>
+    </div>
+  </div>
+</aside>
       </div>
     </section>
 
