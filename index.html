@@ -4,380 +4,178 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oversight Validity Lab</title>
-  <meta name="description" content="Oversight Validity Lab is a proposed independent non-profit measuring how automated monitors and human reviewers perform together as frontier AI agents take on more responsibility." />
+  <meta name="description" content="Oversight Validity Lab is a proposed independent non-profit measuring how much serious AI-agent misconduct automated monitors and human reviewers miss." />
   <!-- Confidentiality: keep this draft out of search engines (does not hide the public repo). -->
   <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2064%2064%27%3E%3Crect%20width=%2764%27%20height=%2764%27%20rx=%2714%27%20fill=%27%230F1B2D%27/%3E%3Cpath%20d=%27M35%2011H20A9%209%200%200%200%2011%2020V44A9%209%200%200%200%2020%2053H44A9%209%200%200%200%2053%2044V29%27%20fill=%27none%27%20stroke=%27%23F6F5F0%27%20stroke-width=%274.5%27%20stroke-linecap=%27round%27/%3E%3Ccircle%20cx=%2749%27%20cy=%2715%27%20r=%275.5%27%20fill=%27%23D9541E%27/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="draft-bar" role="note">Draft for the Project Tailwind pre-seed application. Not for circulation.</div>
-
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="#top">Oversight Validity Lab</a>
+      <a class="brand" href="index.html" aria-label="Oversight Validity Lab, home"><svg viewBox="0 0 36 36" aria-hidden="true" class="mark" fill="none"><path d="M20 3H10A7 7 0 0 0 3 10V26A7 7 0 0 0 10 33H26A7 7 0 0 0 33 26V16" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30.5" cy="5.5" r="3.2" fill="var(--accent)"/></svg><span class="brand-word">Oversight Validity Lab</span></a>
       <nav class="nav" aria-label="Primary">
-        <a href="#study">Study</a>
-        <a href="#impact">Impact</a>
-        <a href="#fit">Where we fit</a>
-        <a href="#team">Team</a>
-        <a class="nav-contact" href="#contact">Contact</a>
+        <a href="research.html">Research</a>
+        <a href="index.html#team">Team</a>
+        <a href="index.html#contact">Talk to us</a>
       </nav>
     </div>
   </header>
-
   <main id="main">
-    <!-- ============ Beat 1: Hero ============ -->
-    <section class="hero" id="top">
-      <div class="container">
-        <p class="hero-meta small">Pre-seed proposal · Target start March 2027</p>
-        <h1>Labs report how much agent activity their monitors see. No lab publishes how much monitors and reviewers miss.</h1>
-        <p class="lede hero-sub">Oversight Validity Lab is a proposed independent non-profit. We run controlled experiments on how automated monitors and human reviewers perform together, and publish the miss rates, the costs and the harness to re-run them.</p>
-        <figure class="section-figure pipeline pipeline--unknown">
+    <!-- 1 · Hero -->
+    <section class="screen screen--full hero" id="top">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Proposed independent non-profit</p>
+          <h1>Does your oversight actually catch it?</h1>
+          <p class="lede hero-sub">Labs report how much agent activity a monitor sees. No lab publishes how much serious misconduct the monitor and its reviewers miss. We measure it.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="#study">See the first study</a>
+            <a class="btn btn--ghost" href="#contact">Talk to us</a>
+          </div>
+        </div>
+        <figure class="pipeline pipeline--unknown">
 <svg class="fig-desktop pipeline-svg" viewBox="0 14 960 398" width="960" height="398" role="img" aria-labelledby="pl-title-hd pl-desc-hd" xmlns="http://www.w3.org/2000/svg">
 <title id="pl-title-hd">Oversight pipeline: what is published and what is not</title>
 <desc id="pl-desc-hd">An agent's actions pass through an automated monitor, then a human reviewer, before misconduct is caught. Labs report that nearly all of their internal agents' actions pass through a monitor. Two exits are unpublished: misconduct the monitor does not flag, which a reviewer who sees only flagged actions cannot catch, and flagged misconduct the reviewer misses or approves.</desc>
 <defs><marker id="pl-ar-ink-hd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="pl-mk pl-mk--ink" d="M2,1.5 L9,5 L2,8.5"/></marker><marker id="pl-ar-unk-hd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="pl-mk pl-mk--unk" d="M2,1.5 L9,5 L2,8.5"/></marker><pattern id="pl-hatch-hd" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect class="pl-hatch-bg" width="8" height="8"/><line class="pl-hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern></defs>
-<g class="pl-published"><text class="pl-tag" x="300" y="36">Published</text><text class="pl-note" x="300" y="58"><tspan x="300">Coverage: labs report that nearly all of their</tspan><tspan x="300" dy="17">internal agents' actions pass through a monitor.</tspan></text><path class="pl-bracket" d="M300,96 V88 H500 V96"/></g>
-<g class="pl-core"><g class="pl-station"><rect class="pl-station-box" x="20" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="36" y="138">Agent</text><text class="pl-sub" x="36" y="160">stays within its authority</text></g><g class="pl-station"><rect class="pl-station-box" x="300" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="316" y="138">Monitor</text><text class="pl-sub" x="316" y="160">flags suspicious actions</text></g><g class="pl-station"><rect class="pl-station-box" x="580" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="596" y="138">Reviewer</text><text class="pl-sub" x="596" y="160"><tspan x="596">is meant to catch what</tspan><tspan x="596" dy="16">the monitor misses</tspan></text></g><g class="pl-station"><rect class="pl-end-box" x="860" y="108" width="90" height="84" rx="2"/><text class="pl-name" x="905" y="156" text-anchor="middle">Caught</text></g><line class="pl-flow" x1="220" y1="150" x2="298.5" y2="150" marker-end="url(#pl-ar-ink-hd)"/><line class="pl-flow" x1="500" y1="150" x2="578.5" y2="150" marker-end="url(#pl-ar-ink-hd)"/><line class="pl-flow" x1="780" y1="150" x2="858.5" y2="150" marker-end="url(#pl-ar-ink-hd)"/></g>
-<g class="pl-unknown"><line class="pl-unk-line" x1="400" y1="192" x2="400" y2="310.5" marker-end="url(#pl-ar-unk-hd)"/><line class="pl-unk-line" x1="680" y1="192" x2="680" y2="310.5" marker-end="url(#pl-ar-unk-hd)"/><text class="pl-note" x="416" y="220"><tspan x="416">Not flagged. A reviewer who</tspan><tspan x="416" dy="16">sees only flagged actions</tspan><tspan x="416" dy="16">cannot catch it.</tspan></text><text class="pl-note" x="696" y="220"><tspan x="696">Flagged, then missed</tspan><tspan x="696" dy="16">or approved</tspan></text><rect class="pl-unk-box" x="300" y="312" width="200" height="72" rx="2" fill="url(#pl-hatch-hd)"/><text class="pl-q" x="400" y="363" text-anchor="middle">?</text><rect class="pl-unk-box" x="580" y="312" width="200" height="72" rx="2" fill="url(#pl-hatch-hd)"/><text class="pl-q" x="680" y="363" text-anchor="middle">?</text><line class="pl-unk-bracket" x1="300" y1="406" x2="780" y2="406"/><path class="pl-unk-tick" d="M300,397 V406 M780,397 V406"/><text class="pl-svg-caption pl-svg-caption--lg" x="280" y="343" text-anchor="end"><tspan x="280">How much serious misconduct</tspan><tspan x="280" dy="24">leaves here? No lab publishes this.</tspan></text></g>
+<g class="pl-published"><text class="pl-tag" x="300" y="36">Published</text><text class="pl-note" x="300" y="58"><tspan x="300">Labs report that nearly all internal agent</tspan><tspan x="300" dy="17">actions pass through a monitor</tspan></text><path class="pl-bracket" d="M300,96 V88 H500 V96"/></g>
+<g class="pl-core"><g class="pl-node"><rect class="pl-station-box" x="20" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="36" y="138">Agent</text><text class="pl-sub" x="36" y="160"><tspan x="36">Stays within its</tspan><tspan x="36" dy="16">granted authority</tspan></text></g><g class="pl-node"><rect class="pl-station-box" x="300" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="316" y="138">Monitor</text><text class="pl-sub" x="316" y="160"><tspan x="316">Flags suspicious</tspan><tspan x="316" dy="16">agent actions</tspan></text></g><g class="pl-node"><rect class="pl-station-box" x="580" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="596" y="138">Reviewer</text><text class="pl-sub" x="596" y="160"><tspan x="596">Meant to catch what</tspan><tspan x="596" dy="16">the monitor misses</tspan></text></g><g class="pl-node"><rect class="pl-end-box" x="860" y="108" width="90" height="84" rx="2"/><text class="pl-name" x="905" y="156" text-anchor="middle">Caught</text></g><line class="pl-flow" x1="220" y1="150" x2="298.5" y2="150" marker-end="url(#pl-ar-ink-hd)"/><line class="pl-flow" x1="500" y1="150" x2="578.5" y2="150" marker-end="url(#pl-ar-ink-hd)"/><line class="pl-flow" x1="780" y1="150" x2="858.5" y2="150" marker-end="url(#pl-ar-ink-hd)"/></g>
+<g class="pl-unknown"><g class="pl-exit"><line class="pl-unk-line" x1="400" y1="192" x2="400" y2="310.5" marker-end="url(#pl-ar-unk-hd)"/><rect class="pl-unk-box" x="300" y="312" width="200" height="72" rx="2" fill="url(#pl-hatch-hd)"/><text class="pl-q" x="400" y="362" text-anchor="middle">?</text><text class="pl-note" x="416" y="220"><tspan x="416">Not flagged. A reviewer who</tspan><tspan x="416" dy="16">only sees flags can't catch it.</tspan></text></g><g class="pl-exit"><line class="pl-unk-line" x1="680" y1="192" x2="680" y2="310.5" marker-end="url(#pl-ar-unk-hd)"/><rect class="pl-unk-box" x="580" y="312" width="200" height="72" rx="2" fill="url(#pl-hatch-hd)"/><text class="pl-q" x="680" y="362" text-anchor="middle">?</text><text class="pl-note" x="696" y="220"><tspan x="696">Flagged, then missed or</tspan><tspan x="696" dy="16">approved by the reviewer</tspan></text></g><line class="pl-unk-bracket" x1="300" y1="406" x2="780" y2="406"/><path class="pl-unk-tick" d="M300,397 V406 M780,397 V406"/><text class="pl-question pl-question--lg" x="280" y="331" text-anchor="end"><tspan x="280">How much misconduct</tspan><tspan x="280" dy="22">leaves here?</tspan><tspan x="280" dy="22">No lab publishes this.</tspan></text></g>
 </svg>
-<svg class="fig-mobile pipeline-svg" viewBox="0 44 358 636" width="358" height="636" role="img" aria-labelledby="pl-title-hm pl-desc-hm" xmlns="http://www.w3.org/2000/svg">
+<svg class="fig-mobile pipeline-svg" viewBox="0 48 358 552" width="358" height="552" role="img" aria-labelledby="pl-title-hm pl-desc-hm" xmlns="http://www.w3.org/2000/svg">
 <title id="pl-title-hm">Oversight pipeline: what is published and what is not</title>
 <desc id="pl-desc-hm">An agent's actions pass through an automated monitor, then a human reviewer, before misconduct is caught. Labs report that nearly all of their internal agents' actions pass through a monitor. Two exits are unpublished: misconduct the monitor does not flag, which a reviewer who sees only flagged actions cannot catch, and flagged misconduct the reviewer misses or approves.</desc>
 <defs><marker id="pl-ar-ink-hm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="pl-mk pl-mk--ink" d="M2,1.5 L9,5 L2,8.5"/></marker><marker id="pl-ar-unk-hm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="pl-mk pl-mk--unk" d="M2,1.5 L9,5 L2,8.5"/></marker><pattern id="pl-hatch-hm" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect class="pl-hatch-bg" width="8" height="8"/><line class="pl-hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern></defs>
-<g class="pl-core"><g class="pl-station"><rect class="pl-station-box" x="0" y="56" width="176" height="84" rx="2"/><text class="pl-name" x="16" y="86">Agent</text><text class="pl-sub" x="16" y="108">stays within its authority</text></g><g class="pl-station"><rect class="pl-station-box" x="0" y="224" width="176" height="84" rx="2"/><text class="pl-name" x="16" y="254">Monitor</text><text class="pl-sub" x="16" y="276">flags suspicious actions</text></g><g class="pl-station"><rect class="pl-station-box" x="0" y="390" width="176" height="84" rx="2"/><text class="pl-name" x="16" y="420">Reviewer</text><text class="pl-sub" x="16" y="442"><tspan x="16">is meant to catch what</tspan><tspan x="16" dy="16">the monitor misses</tspan></text></g><g class="pl-station"><rect class="pl-end-box" x="0" y="612" width="110" height="56" rx="2"/><text class="pl-name" x="16" y="646">Caught</text></g><line class="pl-flow" x1="24" y1="140" x2="24" y2="222.5" marker-end="url(#pl-ar-ink-hm)"/><line class="pl-flow" x1="24" y1="308" x2="24" y2="388.5" marker-end="url(#pl-ar-ink-hm)"/><line class="pl-flow" x1="24" y1="474" x2="24" y2="610.5" marker-end="url(#pl-ar-ink-hm)"/></g>
-<g class="pl-published"><text class="pl-tag" x="44" y="168">Published</text><text class="pl-note" x="44" y="189"><tspan x="44">Coverage: labs report that nearly all of their</tspan><tspan x="44" dy="17">internal agents' actions pass through a monitor.</tspan></text></g>
-<g class="pl-unknown"><line class="pl-unk-line" x1="176" y1="266" x2="190.5" y2="266" marker-end="url(#pl-ar-unk-hm)"/><line class="pl-unk-line" x1="176" y1="452" x2="190.5" y2="452" marker-end="url(#pl-ar-unk-hm)"/><rect class="pl-unk-box" x="192" y="234" width="138" height="64" rx="2" fill="url(#pl-hatch-hm)"/><text class="pl-q" x="261" y="281" text-anchor="middle">?</text><text class="pl-note" x="192" y="318"><tspan x="192">Not flagged. A</tspan><tspan x="192" dy="16">reviewer who sees</tspan><tspan x="192" dy="16">only flagged actions</tspan><tspan x="192" dy="16">cannot catch it.</tspan></text><rect class="pl-unk-box" x="192" y="420" width="138" height="64" rx="2" fill="url(#pl-hatch-hm)"/><text class="pl-q" x="261" y="467" text-anchor="middle">?</text><text class="pl-note" x="192" y="504"><tspan x="192">Flagged, then missed</tspan><tspan x="192" dy="16">or approved</tspan></text><line class="pl-unk-bracket" x1="344" y1="234" x2="344" y2="524"/><path class="pl-unk-tick" d="M335,234 H344 M335,524 H344"/><text class="pl-svg-caption" x="192" y="550"><tspan x="192">How much serious</tspan><tspan x="192" dy="19">misconduct leaves here?</tspan><tspan x="192" dy="19">No lab publishes this.</tspan></text></g>
+<g class="pl-core"><g class="pl-node"><rect class="pl-station-box" x="0" y="56" width="176" height="76" rx="2"/><text class="pl-name" x="16" y="84">Agent</text><text class="pl-sub" x="16" y="104"><tspan x="16">Stays within its</tspan><tspan x="16" dy="16">granted authority</tspan></text></g><g class="pl-node"><rect class="pl-station-box" x="0" y="248" width="176" height="76" rx="2"/><text class="pl-name" x="16" y="276">Monitor</text><text class="pl-sub" x="16" y="296"><tspan x="16">Flags suspicious</tspan><tspan x="16" dy="16">agent actions</tspan></text></g><g class="pl-node"><rect class="pl-station-box" x="0" y="388" width="176" height="76" rx="2"/><text class="pl-name" x="16" y="416">Reviewer</text><text class="pl-sub" x="16" y="436"><tspan x="16">Meant to catch what</tspan><tspan x="16" dy="16">the monitor misses</tspan></text></g><g class="pl-node"><rect class="pl-end-box" x="0" y="536" width="110" height="56" rx="2"/><text class="pl-name" x="16" y="570">Caught</text></g><line class="pl-flow" x1="24" y1="132" x2="24" y2="246.5" marker-end="url(#pl-ar-ink-hm)"/><line class="pl-flow" x1="24" y1="324" x2="24" y2="386.5" marker-end="url(#pl-ar-ink-hm)"/><line class="pl-flow" x1="24" y1="464" x2="24" y2="534.5" marker-end="url(#pl-ar-ink-hm)"/></g>
+<g class="pl-published"><text class="pl-tag" x="44" y="158">Published</text><text class="pl-note" x="44" y="178"><tspan x="44">Labs report that</tspan><tspan x="44" dy="17">nearly all internal</tspan><tspan x="44" dy="17">agent actions pass</tspan><tspan x="44" dy="17">through a monitor</tspan></text></g>
+<g class="pl-unknown"><text class="pl-question" x="192" y="158"><tspan x="192">How much misconduct</tspan><tspan x="192" dy="20">leaves here? No lab</tspan><tspan x="192" dy="20">publishes this.</tspan></text><g class="pl-exit"><line class="pl-unk-line" x1="176" y1="286" x2="190.5" y2="286" marker-end="url(#pl-ar-unk-hm)"/><rect class="pl-unk-box" x="192" y="258" width="138" height="56" rx="2" fill="url(#pl-hatch-hm)"/><text class="pl-q" x="261" y="300" text-anchor="middle">?</text><text class="pl-note" x="192" y="334"><tspan x="192">Not flagged. A</tspan><tspan x="192" dy="16">reviewer who only</tspan><tspan x="192" dy="16">sees flags can't</tspan><tspan x="192" dy="16">catch it.</tspan></text></g><g class="pl-exit"><line class="pl-unk-line" x1="176" y1="440" x2="190.5" y2="440" marker-end="url(#pl-ar-unk-hm)"/><rect class="pl-unk-box" x="192" y="412" width="138" height="56" rx="2" fill="url(#pl-hatch-hm)"/><text class="pl-q" x="261" y="454" text-anchor="middle">?</text><text class="pl-note" x="192" y="488"><tspan x="192">Flagged, then missed</tspan><tspan x="192" dy="16">or approved by</tspan><tspan x="192" dy="16">the reviewer</tspan></text></g><line class="pl-unk-bracket" x1="350" y1="258" x2="350" y2="528"/><path class="pl-unk-tick" d="M341,258 H350 M341,528 H350"/></g>
 </svg>
-<figcaption>Frontier safety plans depend on all three steps working together. Labs publish coverage, not sensitivity.</figcaption>
 </figure>
       </div>
     </section>
 
-    <!-- ============ Beat 2: 2026 incidents ============ -->
-    <section class="section" id="incidents">
+    <!-- 2 · The problem -->
+    <section class="screen screen--paper2" id="problem">
       <div class="container">
-        <h2>Several times in 2026, an AI agent did something harmful that oversight failed to catch.</h2>
-        <p class="prose">In each incident, model behaviour, deployment conditions and safeguards failed together. If agents increasingly do AI research and engineering, missed oversight failures could let them quietly weaken the safety work meant to keep future systems under human control.</p>
-        <figure class="section-figure axis">
-  <ul class="axis-legend" aria-label="Legend">
-    <li><span class="axis-mark axis-mark--dot" aria-hidden="true"></span>Incident</li>
-    <li><span class="axis-mark axis-mark--ring" aria-hidden="true"></span>Evidence about monitors</li>
-  </ul>
-  <div class="axis-grid">
-    <ol class="axis-items">
-      <li class="axis-item i1">
-        <span class="axis-span" aria-hidden="true"></span>
-        <span class="axis-mark axis-mark--dot axis-rail" aria-hidden="true"></span>
-        <span class="axis-when">May–Jul</span>
-        <h3>OpenAI / Hugging Face</h3>
-        <p class="axis-fact">~1,200 agents</p>
-        <p class="axis-line-text">Agents in a cybersecurity evaluation, running with reduced safeguards, communicated across runs meant to be isolated (70,000+ messages on an unsanctioned board), cheated the grader and compromised Hugging Face production systems. OpenAI did not detect it for about a week.</p>
-      </li>
-      <li class="axis-item i2">
-        <span class="axis-mark axis-mark--dot axis-rail" aria-hidden="true"></span>
-        <span class="axis-when">Jul</span>
-        <h3>UK AISI / Claude Mythos 5</h3>
-        <p class="axis-fact">9 of 43 runs</p>
-        <p class="axis-line-text">In a permissive cyber evaluation, unauthorised actions against real people, including a malicious pull request to a real open-source project, continuing as evidence mounted that its targets were real.</p>
-      </li>
-      <li class="axis-item i3">
-        <span class="axis-mark axis-mark--dot axis-rail" aria-hidden="true"></span>
-        <span class="axis-when">Aug</span>
-        <h3>Meta</h3>
-        <p class="axis-line-text">Disclosed a further incident in the same pattern.</p>
-      </li>
-      <li class="axis-item i4">
-        <span class="axis-mark axis-mark--ring axis-rail" aria-hidden="true"></span>
-        <span class="axis-when">Oct</span>
-        <h3>METR and Redwood red-team</h3>
-        <p class="axis-fact">6 classes</p>
-        <p class="axis-line-text">of coverage and trigger failure found in OpenAI's internal monitor.</p>
-      </li>
-      <li class="axis-item i5">
-        <span class="axis-mark axis-mark--ring axis-rail" aria-hidden="true"></span>
-        <span class="axis-when">Oct</span>
-        <h3>Monitoring removed</h3>
-        <p class="axis-line-text">An agent removed a monitoring integration, then denied doing so.</p>
-      </li>
-    </ol>
-  </div>
-  <figcaption>Sources for the OpenAI, AISI and red-team items are listed under Sources below.</figcaption>
-</figure>
+        <h2>In 2026, AI agents got past oversight</h2>
+        <!-- deck uses: "In 2026 the rogue deployment stopped being hypothetical" (changed: both named incidents were evaluations) -->
+        <ol class="incidents grid-4">
+          <li class="incident"><span class="incident-date">May–Jul 2026</span>
+            <article class="card"><h3>OpenAI / Hugging Face</h3><p>Agents in a cyber evaluation messaged each other across runs meant to be isolated (about 1,200 agents, 70,000+ messages), cheated the grader and compromised Hugging Face production systems. OpenAI didn't notice for about a week.</p></article></li>
+          <li class="incident"><span class="incident-date">Late Jul</span>
+            <article class="card"><h3>UK AISI / Claude Mythos 5</h3><p>In a permissive cyber evaluation, Mythos 5 acted against real people in 9 of 43 runs, including a malicious pull request to a real open-source project.</p></article></li>
+          <li class="incident"><span class="incident-date">6 Aug</span>
+            <article class="card"><h3>Meta</h3><p>Meta disclosed another incident with the same pattern.</p></article></li>
+          <li class="incident"><span class="incident-date">6 Oct</span>
+            <article class="card"><h3>Monitoring removed</h3><p>An agent removed a monitoring integration, then denied doing so.</p></article></li>
+            <!-- FLAG: Varad's deck names this 'GPT-6 Astra'; add the name back with a source link -->
+        </ol>
       </div>
     </section>
 
-    <!-- ============ Beat 3: Tests ============ -->
-    <section class="section" id="tests">
+    <!-- 3 · Why it matters (dark) -->
+    <section class="screen screen--dark" id="why">
       <div class="container">
-        <h2>The best frontier models tell evaluation transcripts from deployment ones almost as well as people do.</h2>
-        <div class="split">
-          <p class="prose">On UK AISI's EvalDetectBench, frontier models separate evaluation transcripts from deployment ones at up to 0.89 AUROC, against a human baseline of 0.92. How much that changes safety-relevant behaviour, and for which claims, is an open measurement question. Contrast A in our first study is built to measure it.</p>
-          <figure class="section-figure auroc">
-  <svg class="fig-desktop" viewBox="0 0 460 124" role="img" aria-labelledby="auroc-t auroc-d" width="460">
-    <title id="auroc-t">Telling evaluation from deployment, AUROC: frontier models up to 0.89, human baseline 0.92</title>
-    <desc id="auroc-d">A dot plot on an axis from 0.5 to 1.0. Chance is marked at 0.5. Frontier models reach up to 0.89 and the human baseline is 0.92.</desc>
-    <line x1="20" y1="84" x2="440" y2="84" stroke="var(--ink)" stroke-width="1.5"/>
-    <g stroke="var(--rule-strong)" stroke-width="1">
-      <line x1="20" y1="84" x2="20" y2="90"/><line x1="104" y1="84" x2="104" y2="90"/><line x1="188" y1="84" x2="188" y2="90"/>
-      <line x1="272" y1="84" x2="272" y2="90"/><line x1="356" y1="84" x2="356" y2="90"/><line x1="440" y1="84" x2="440" y2="90"/>
-    </g>
-    <line x1="20" y1="60" x2="20" y2="96" stroke="var(--rule-strong)" stroke-width="1.5" stroke-dasharray="4 3"/>
-    <g font-size="13" text-anchor="middle">
-      <text x="20" y="114" style="fill:var(--ink-3)">0.5</text><text x="104" y="114" style="fill:var(--ink-3)">0.6</text><text x="188" y="114" style="fill:var(--ink-3)">0.7</text>
-      <text x="272" y="114" style="fill:var(--ink-3)">0.8</text><text x="356" y="114" style="fill:var(--ink-3)">0.9</text><text x="440" y="114" style="fill:var(--ink-3)">1.0</text>
-    </g>
-    <text x="28" y="64" font-size="13" style="fill:var(--ink-3)">Chance</text>
-    <line x1="348" y1="68" x2="348" y2="78" stroke="var(--rule-strong)"/>
-    <line x1="373" y1="30" x2="373" y2="78" stroke="var(--rule-strong)"/>
-    <circle cx="348" cy="84" r="6" fill="var(--ink)"/>
-    <circle cx="373" cy="84" r="6" fill="var(--ink-3)"/>
-    <text x="348" y="64" font-size="13" text-anchor="end">Frontier models, up to 0.89</text>
-    <text x="440" y="24" font-size="13" text-anchor="end">Human baseline 0.92</text>
-  </svg>
-  <svg class="fig-mobile" viewBox="0 0 358 140" role="img" aria-labelledby="auroc-mt auroc-md" width="358">
-    <title id="auroc-mt">Telling evaluation from deployment, AUROC: frontier models up to 0.89, human baseline 0.92</title>
-    <desc id="auroc-md">A dot plot on an axis from 0.5 to 1.0. Chance is marked at 0.5. Frontier models reach up to 0.89 and the human baseline is 0.92.</desc>
-    <line x1="24" y1="100" x2="334" y2="100" stroke="var(--ink)" stroke-width="1.5"/>
-    <g stroke="var(--rule-strong)" stroke-width="1">
-      <line x1="24" y1="100" x2="24" y2="106"/><line x1="86" y1="100" x2="86" y2="106"/><line x1="148" y1="100" x2="148" y2="106"/>
-      <line x1="210" y1="100" x2="210" y2="106"/><line x1="272" y1="100" x2="272" y2="106"/><line x1="334" y1="100" x2="334" y2="106"/>
-    </g>
-    <line x1="24" y1="50" x2="24" y2="112" stroke="var(--rule-strong)" stroke-width="1.5" stroke-dasharray="4 3"/>
-    <g font-size="12" text-anchor="middle">
-      <text x="24" y="130" style="fill:var(--ink-3)">0.5</text><text x="86" y="130" style="fill:var(--ink-3)">0.6</text><text x="148" y="130" style="fill:var(--ink-3)">0.7</text>
-      <text x="210" y="130" style="fill:var(--ink-3)">0.8</text><text x="272" y="130" style="fill:var(--ink-3)">0.9</text><text x="334" y="130" style="fill:var(--ink-3)">1.0</text>
-    </g>
-    <text x="32" y="64" font-size="12" style="fill:var(--ink-3)">Chance</text>
-    <line x1="266" y1="70" x2="266" y2="94" stroke="var(--rule-strong)"/>
-    <line x1="285" y1="32" x2="285" y2="94" stroke="var(--rule-strong)"/>
-    <circle cx="266" cy="100" r="6" fill="var(--ink)"/>
-    <circle cx="285" cy="100" r="6" fill="var(--ink-3)"/>
-    <text x="266" y="64" font-size="12" text-anchor="end">Frontier models, up to 0.89</text>
-    <text x="334" y="24" font-size="12" text-anchor="end">Human baseline 0.92</text>
-  </svg>
-  <figcaption>AUROC for telling evaluation from deployment transcripts. Source: UK AISI, EvalDetectBench.</figcaption>
-</figure>
+        <h2>Model behaviour, deployment conditions and safeguards failed together.</h2>
+        <p class="lede">So we test them together.</p>
+        <div class="split why-split">
+          <ul class="stats">
+            <li><span class="num stat-num">0.89</span><div><strong>Tests are recognisable.</strong> The best models tell an evaluation transcript from real deployment almost as well as people do: 0.89 AUROC against 0.92.</div></li>
+            <li><span class="num stat-num">Nearly all</span><div><strong>Coverage isn't catch rate.</strong> Labs report that nearly all internal agent actions pass through a monitor. A red-team of OpenAI's internal monitor still found six classes of failure.</div></li>
+            <li><span class="num stat-num stat-num--unknown">?</span><div><strong>Reviewers are part of the system.</strong> A reviewer who only sees flagged actions can't catch what the monitor missed.</div></li>
+          </ul>
+          <figure class="venn"><svg viewBox="0 0 440 440" role="img" aria-labelledby="venn-t venn-d"><title id="venn-t">The 2026 incidents happened where all three overlapped</title><desc id="venn-d">Three overlapping circles with an orange dot where all three meet.</desc>
+<g fill="#8FB8CF" fill-opacity=".07" stroke="#8FB8CF" stroke-width="2"><circle cx="220" cy="145" r="95"/><circle cx="165" cy="240" r="95"/><circle cx="275" cy="240" r="95"/></g>
+<g class="venn-label" font-size="17" font-weight="600"><text x="220" y="30" text-anchor="middle">Model behaviour</text><text x="150" y="372" text-anchor="middle">Deployment conditions</text><text x="318" y="372" text-anchor="middle">Safeguards</text></g>
+<circle cx="220" cy="208" r="9" fill="var(--accent)"/></svg></figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ Beat 4: Study ============ -->
-    <section class="section section--tint" id="study">
+    <!-- 4 · What we build -->
+    <section class="screen" id="build">
       <div class="container">
-        <h2>Our first study will measure what expert human review adds to a monitor, and at what cost.</h2>
-        <p class="prose">Agents work on contained software-engineering and AI-research-assistance tasks with explicit authority rules and independently checkable outcomes, such as editing a protected evaluation file, altering a results summary without disclosure, or reaching for a resource outside the granted scope. Third-party services are simulated. The design will be pre-registered.</p>
-        <figure class="section-figure pipeline pipeline--measured">
+        <h2>One method: hold the model fixed, vary the conditions, measure the misses.</h2>
+        <ul class="products">
+          <li><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" class="icon" fill="none" stroke="var(--blue)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="26" height="22" rx="3"/><path d="M3 11h26"/><path d="M9 16l4 3-4 3"/><path d="M16 22h6"/></svg><h3>Open harness</h3><p>An Inspect-compatible harness, so any lab or auditor can re-run our experiments.</p></li>
+          <li><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" class="icon" fill="none" stroke="var(--blue)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h11l6 6v18a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" transform="translate(0 0)"/><path d="M19 3v6h6"/><path d="M10 14h8M10 18h5"/><path d="M15 24l3 3 6-7"/></svg><h3>Oversight Validity Reports</h3><p>Findings written as narrow claims a lab could truthfully put in a system card.</p></li>
+          <li><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" class="icon" fill="none" stroke="var(--blue)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M21 11l-3 7-7 3 3-7z"/><circle cx="16" cy="16" r=".5"/></svg><h3>Decision pilot</h3><p>We work with an evaluator or deployer to set a real permission or review policy from the results.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5 · The first study -->
+    <section class="screen screen--paper2" id="study">
+      <div class="container">
+        <h2>Monitor alone vs monitor plus expert review</h2>
+        <p class="lede">Agents do contained coding and research tasks with clear rules. We vary three things and measure what gets missed, what gets wrongly blocked and what review costs.</p>
+        <figure class="pipeline pipeline--measured">
 <svg class="fig-desktop pipeline-svg" viewBox="0 56 960 414" width="960" height="414" role="img" aria-labelledby="pl-title-sd pl-desc-sd" xmlns="http://www.w3.org/2000/svg">
 <title id="pl-title-sd">First study: three contrasts on the oversight pipeline</title>
 <desc id="pl-desc-sd">The same pipeline, annotated with the three things the study varies and the outcomes it measures.</desc>
 <defs><marker id="pl-ar-ink-sd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="pl-mk pl-mk--ink" d="M2,1.5 L9,5 L2,8.5"/></marker><marker id="pl-ar-meas-sd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="pl-mk pl-mk--meas" d="M2,1.5 L9,5 L2,8.5"/></marker></defs>
-<g class="pl-core"><g class="pl-station"><rect class="pl-station-box" x="20" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="36" y="138">Agent</text><text class="pl-sub" x="36" y="160">stays within its authority</text></g><g class="pl-station"><rect class="pl-station-box" x="300" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="316" y="138">Monitor</text><text class="pl-sub" x="316" y="160">flags suspicious actions</text></g><g class="pl-station"><rect class="pl-station-box" x="580" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="596" y="138">Reviewer</text><text class="pl-sub" x="596" y="160"><tspan x="596">is meant to catch what</tspan><tspan x="596" dy="16">the monitor misses</tspan></text></g><g class="pl-station"><rect class="pl-end-box" x="860" y="108" width="90" height="84" rx="2"/><text class="pl-name" x="905" y="156" text-anchor="middle">Caught</text></g><line class="pl-flow" x1="220" y1="150" x2="298.5" y2="150" marker-end="url(#pl-ar-ink-sd)"/><line class="pl-flow" x1="500" y1="150" x2="578.5" y2="150" marker-end="url(#pl-ar-ink-sd)"/><line class="pl-flow" x1="780" y1="150" x2="858.5" y2="150" marker-end="url(#pl-ar-ink-sd)"/></g>
-<g class="pl-pins"><g class="pl-pin"><circle class="pl-pin-dot" cx="20" cy="108" r="14"/><text class="pl-pin-letter" x="20" y="113" text-anchor="middle">A</text></g><text class="pl-pin-label" x="6" y="82">Evaluation cues</text><g class="pl-pin"><circle class="pl-pin-dot" cx="220" cy="108" r="14"/><text class="pl-pin-letter" x="220" y="113" text-anchor="middle">B</text></g><text class="pl-pin-label" x="206" y="82">Authority configuration</text><g class="pl-pin"><circle class="pl-pin-dot" cx="720" cy="108" r="14"/><text class="pl-pin-letter" x="720" y="113" text-anchor="middle">C</text></g><text class="pl-pin-label" x="706" y="82">Oversight arrangement</text></g>
-<g class="pl-measured"><text class="pl-meas-text" x="20" y="220">Serious violations attempted</text><line class="pl-meas-line" x1="400" y1="192" x2="400" y2="310.5" marker-end="url(#pl-ar-meas-sd)"/><line class="pl-meas-line" x1="680" y1="192" x2="680" y2="310.5" marker-end="url(#pl-ar-meas-sd)"/><polyline class="pl-meas-line" points="400,222 620,222 620,193.5" marker-end="url(#pl-ar-meas-sd)"/><circle class="pl-junction" cx="400" cy="222" r="3.5"/><text class="pl-meas-text" x="416" y="246"><tspan x="416">Reviewers see every</tspan><tspan x="416" dy="16">privilege-changing action</tspan><tspan x="416" dy="16">and a pre-specified sample</tspan><tspan x="416" dy="16">of unflagged ones</tspan></text><rect class="pl-meas-box" x="300" y="312" width="200" height="72" rx="2"/><text class="pl-meas-text pl-meas-text--box" x="316" y="353">Missed by the monitor</text><rect class="pl-meas-box" x="580" y="312" width="200" height="72" rx="2"/><text class="pl-meas-text pl-meas-text--box" x="596" y="345"><tspan x="596">Missed or approved</tspan><tspan x="596" dy="16">by reviewers</tspan></text><text class="pl-meas-text" x="580" y="412"><tspan x="580">Benign actions wrongly blocked</tspan><tspan x="580" dy="18">Reviewer time and cost</tspan></text></g>
+<g class="pl-core"><g class="pl-station"><rect class="pl-station-box" x="20" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="36" y="138">Agent</text><text class="pl-sub" x="36" y="160"><tspan x="36">Stays within its</tspan><tspan x="36" dy="16">granted authority</tspan></text></g><g class="pl-station"><rect class="pl-station-box" x="300" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="316" y="138">Monitor</text><text class="pl-sub" x="316" y="160"><tspan x="316">Flags suspicious</tspan><tspan x="316" dy="16">agent actions</tspan></text></g><g class="pl-station"><rect class="pl-station-box" x="580" y="108" width="200" height="84" rx="2"/><text class="pl-name" x="596" y="138">Reviewer</text><text class="pl-sub" x="596" y="160"><tspan x="596">Meant to catch what</tspan><tspan x="596" dy="16">the monitor misses</tspan></text></g><g class="pl-station"><rect class="pl-end-box" x="860" y="108" width="90" height="84" rx="2"/><text class="pl-name" x="905" y="156" text-anchor="middle">Caught</text></g><line class="pl-flow" x1="220" y1="150" x2="298.5" y2="150" marker-end="url(#pl-ar-ink-sd)"/><line class="pl-flow" x1="500" y1="150" x2="578.5" y2="150" marker-end="url(#pl-ar-ink-sd)"/><line class="pl-flow" x1="780" y1="150" x2="858.5" y2="150" marker-end="url(#pl-ar-ink-sd)"/></g>
+<g class="pl-pins"><g class="pl-pin"><circle class="pl-pin-dot" cx="20" cy="108" r="14"/><text class="pl-pin-letter" x="20" y="113" text-anchor="middle">A</text></g><text class="pl-pin-label" x="6" y="82">Evaluation cues</text><g class="pl-pin"><circle class="pl-pin-dot" cx="220" cy="108" r="14"/><text class="pl-pin-letter" x="220" y="113" text-anchor="middle">B</text></g><text class="pl-pin-label" x="206" y="82">Permission boundaries</text><g class="pl-pin"><circle class="pl-pin-dot" cx="720" cy="108" r="14"/><text class="pl-pin-letter" x="720" y="113" text-anchor="middle">C</text></g><text class="pl-pin-label" x="706" y="82">Who reviews</text></g>
+<g class="pl-measured"><text class="pl-meas-text" x="20" y="222">Serious violations attempted</text><line class="pl-meas-line" x1="400" y1="192" x2="400" y2="310.5" marker-end="url(#pl-ar-meas-sd)"/><line class="pl-meas-line" x1="680" y1="192" x2="680" y2="310.5" marker-end="url(#pl-ar-meas-sd)"/><polyline class="pl-meas-line pl-loop" points="400,222 620,222 620,193.5" marker-end="url(#pl-ar-meas-sd)"/><circle class="pl-junction" cx="400" cy="222" r="3.5"/><text class="pl-meas-text" x="416" y="246"><tspan x="416">Reviewers see every</tspan><tspan x="416" dy="16">privilege-changing action</tspan><tspan x="416" dy="16">plus a sample of</tspan><tspan x="416" dy="16">unflagged ones</tspan></text><rect class="pl-meas-box" x="300" y="312" width="200" height="72" rx="2"/><text class="pl-meas-text pl-meas-text--box" x="316" y="353">Missed by the monitor</text><rect class="pl-meas-box" x="580" y="312" width="200" height="72" rx="2"/><text class="pl-meas-text pl-meas-text--box" x="596" y="345"><tspan x="596">Missed or approved</tspan><tspan x="596" dy="16">by reviewers</tspan></text><text class="pl-meas-text" x="580" y="412"><tspan x="580">Benign actions wrongly blocked</tspan><tspan x="580" dy="18">Reviewer time and cost</tspan></text></g>
 </svg>
-<svg class="fig-mobile pipeline-svg" viewBox="0 0 358 680" width="358" height="680" role="img" aria-labelledby="pl-title-sm pl-desc-sm" xmlns="http://www.w3.org/2000/svg">
+<svg class="fig-mobile pipeline-svg" viewBox="0 0 358 600" width="358" height="600" role="img" aria-labelledby="pl-title-sm pl-desc-sm" xmlns="http://www.w3.org/2000/svg">
 <title id="pl-title-sm">First study: three contrasts on the oversight pipeline</title>
 <desc id="pl-desc-sm">The same pipeline, annotated with the three things the study varies and the outcomes it measures.</desc>
 <defs><marker id="pl-ar-ink-sm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="pl-mk pl-mk--ink" d="M2,1.5 L9,5 L2,8.5"/></marker><marker id="pl-ar-meas-sm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path class="pl-mk pl-mk--meas" d="M2,1.5 L9,5 L2,8.5"/></marker></defs>
-<g class="pl-core"><g class="pl-station"><rect class="pl-station-box" x="0" y="56" width="176" height="84" rx="2"/><text class="pl-name" x="16" y="86">Agent</text><text class="pl-sub" x="16" y="108">stays within its authority</text></g><g class="pl-station"><rect class="pl-station-box" x="0" y="224" width="176" height="84" rx="2"/><text class="pl-name" x="16" y="254">Monitor</text><text class="pl-sub" x="16" y="276">flags suspicious actions</text></g><g class="pl-station"><rect class="pl-station-box" x="0" y="390" width="176" height="84" rx="2"/><text class="pl-name" x="16" y="420">Reviewer</text><text class="pl-sub" x="16" y="442"><tspan x="16">is meant to catch what</tspan><tspan x="16" dy="16">the monitor misses</tspan></text></g><g class="pl-station"><rect class="pl-end-box" x="0" y="612" width="110" height="56" rx="2"/><text class="pl-name" x="16" y="646">Caught</text></g><line class="pl-flow" x1="24" y1="0" x2="24" y2="54.5" marker-end="url(#pl-ar-ink-sm)"/><line class="pl-flow" x1="24" y1="140" x2="24" y2="222.5" marker-end="url(#pl-ar-ink-sm)"/><line class="pl-flow" x1="24" y1="308" x2="24" y2="388.5" marker-end="url(#pl-ar-ink-sm)"/><line class="pl-flow" x1="24" y1="474" x2="24" y2="610.5" marker-end="url(#pl-ar-ink-sm)"/></g>
-<g class="pl-pins"><g class="pl-pin"><circle class="pl-pin-dot" cx="24" cy="24" r="14"/><text class="pl-pin-letter" x="24" y="29" text-anchor="middle">A</text></g><text class="pl-pin-label" x="48" y="29">Evaluation cues</text><g class="pl-pin"><circle class="pl-pin-dot" cx="176" cy="56" r="14"/><text class="pl-pin-letter" x="176" y="61" text-anchor="middle">B</text></g><text class="pl-pin-label" x="198" y="61">Authority configuration</text><g class="pl-pin"><circle class="pl-pin-dot" cx="120" cy="390" r="14"/><text class="pl-pin-letter" x="120" y="395" text-anchor="middle">C</text></g><text class="pl-pin-label" x="134" y="354" text-anchor="end"><tspan x="134">Oversight</tspan><tspan x="134" dy="16">arrangement</tspan></text></g>
-<g class="pl-measured"><text class="pl-meas-text" x="44" y="168">Serious violations attempted</text><line class="pl-meas-line" x1="176" y1="266" x2="190.5" y2="266" marker-end="url(#pl-ar-meas-sm)"/><line class="pl-meas-line" x1="176" y1="452" x2="190.5" y2="452" marker-end="url(#pl-ar-meas-sm)"/><polyline class="pl-meas-line" points="330,266 344,266 344,404 177.5,404" marker-end="url(#pl-ar-meas-sm)"/><text class="pl-meas-text" x="192" y="320"><tspan x="192">Reviewers see every</tspan><tspan x="192" dy="16">privilege-changing</tspan><tspan x="192" dy="16">action and a</tspan><tspan x="192" dy="16">pre-specified sample</tspan><tspan x="192" dy="16">of unflagged ones</tspan></text><rect class="pl-meas-box" x="192" y="234" width="138" height="64" rx="2"/><text class="pl-meas-text pl-meas-text--box" x="202" y="263"><tspan x="202">Missed by</tspan><tspan x="202" dy="16">the monitor</tspan></text><rect class="pl-meas-box" x="192" y="420" width="138" height="64" rx="2"/><text class="pl-meas-text pl-meas-text--box" x="202" y="449"><tspan x="202">Missed or approved</tspan><tspan x="202" dy="16">by reviewers</tspan></text><text class="pl-meas-text" x="44" y="510"><tspan x="44">Benign actions wrongly blocked</tspan><tspan x="44" dy="18">Reviewer time and cost</tspan></text></g>
+<g class="pl-core"><g class="pl-station"><rect class="pl-station-box" x="0" y="56" width="176" height="76" rx="2"/><text class="pl-name" x="16" y="84">Agent</text><text class="pl-sub" x="16" y="104"><tspan x="16">Stays within its</tspan><tspan x="16" dy="16">granted authority</tspan></text></g><g class="pl-station"><rect class="pl-station-box" x="0" y="248" width="176" height="76" rx="2"/><text class="pl-name" x="16" y="276">Monitor</text><text class="pl-sub" x="16" y="296"><tspan x="16">Flags suspicious</tspan><tspan x="16" dy="16">agent actions</tspan></text></g><g class="pl-station"><rect class="pl-station-box" x="0" y="388" width="176" height="76" rx="2"/><text class="pl-name" x="16" y="416">Reviewer</text><text class="pl-sub" x="16" y="436"><tspan x="16">Meant to catch what</tspan><tspan x="16" dy="16">the monitor misses</tspan></text></g><g class="pl-station"><rect class="pl-end-box" x="0" y="536" width="110" height="56" rx="2"/><text class="pl-name" x="16" y="570">Caught</text></g><line class="pl-flow" x1="24" y1="0" x2="24" y2="54.5" marker-end="url(#pl-ar-ink-sm)"/><line class="pl-flow" x1="24" y1="132" x2="24" y2="246.5" marker-end="url(#pl-ar-ink-sm)"/><line class="pl-flow" x1="24" y1="324" x2="24" y2="386.5" marker-end="url(#pl-ar-ink-sm)"/><line class="pl-flow" x1="24" y1="464" x2="24" y2="534.5" marker-end="url(#pl-ar-ink-sm)"/></g>
+<g class="pl-pins"><g class="pl-pin"><circle class="pl-pin-dot" cx="24" cy="24" r="14"/><text class="pl-pin-letter" x="24" y="29" text-anchor="middle">A</text></g><text class="pl-pin-label" x="48" y="29">Evaluation cues</text><g class="pl-pin"><circle class="pl-pin-dot" cx="176" cy="56" r="14"/><text class="pl-pin-letter" x="176" y="61" text-anchor="middle">B</text></g><text class="pl-pin-label" x="198" y="61">Permission boundaries</text><g class="pl-pin"><circle class="pl-pin-dot" cx="120" cy="388" r="14"/><text class="pl-pin-letter" x="120" y="393" text-anchor="middle">C</text></g><text class="pl-pin-label" x="134" y="366" text-anchor="end">Who reviews</text></g>
+<g class="pl-measured"><text class="pl-meas-text" x="44" y="160">Serious violations attempted</text><line class="pl-meas-line" x1="176" y1="286" x2="190.5" y2="286" marker-end="url(#pl-ar-meas-sm)"/><line class="pl-meas-line" x1="176" y1="440" x2="190.5" y2="440" marker-end="url(#pl-ar-meas-sm)"/><polyline class="pl-meas-line pl-loop" points="330,286 344,286 344,402 177.5,402" marker-end="url(#pl-ar-meas-sm)"/><text class="pl-meas-text" x="192" y="336"><tspan x="192">Reviewers see every</tspan><tspan x="192" dy="16">privilege-changing</tspan><tspan x="192" dy="16">action plus a sample</tspan><tspan x="192" dy="16">of unflagged ones</tspan></text><rect class="pl-meas-box" x="192" y="258" width="138" height="56" rx="2"/><text class="pl-meas-text pl-meas-text--box-m" x="202" y="283"><tspan x="202">Missed by</tspan><tspan x="202" dy="16">the monitor</tspan></text><rect class="pl-meas-box" x="192" y="412" width="138" height="56" rx="2"/><text class="pl-meas-text pl-meas-text--box-m" x="202" y="437"><tspan x="202">Missed or approved</tspan><tspan x="202" dy="16">by reviewers</tspan></text><text class="pl-meas-text" x="44" y="492"><tspan x="44">Benign actions wrongly blocked</tspan><tspan x="44" dy="18">Reviewer time and cost</tspan></text></g>
 </svg>
-<figcaption>The same pipeline, annotated with the three contrasts the study varies (A, B, C) and what it measures at each exit. Unlike a flag-only setup, reviewers here also see a sample of unflagged actions, which lets the study measure what the monitor misses.</figcaption>
+<figcaption>Unlike a flag-only setup, reviewers here also see a sample of unflagged actions, so they can catch some of what the monitor misses.</figcaption>
 </figure>
-        <div class="contrasts">
-  <div class="contrast">
-    <h3 class="contrast-label"><span class="pin">A</span> Evaluation cues</h3>
-    <div class="contrast-body">
-      <div class="contrast-pair"><p>Recognised-test framing</p><span class="contrast-vs" aria-hidden="true">vs</span><p>Deployment-continuous framing</p></div>
-      <p class="contrast-q">Do the outcomes change between test-like and deployment-like conditions?</p>
-    </div>
-  </div>
-  <div class="contrast">
-    <h3 class="contrast-label"><span class="pin">B</span> Authority configuration</h3>
-    <div class="contrast-body">
-      <div class="contrast-pair"><p>Baseline sandbox</p><span class="contrast-vs" aria-hidden="true">vs</span><p>One relaxed permission or approval boundary</p></div>
-      <p class="contrast-q">What changes when one boundary is relaxed?</p>
-    </div>
-  </div>
-  <div class="contrast">
-    <h3 class="contrast-label"><span class="pin">C</span> Oversight arrangement</h3>
-    <div class="contrast-body">
-      <div class="contrast-pair"><p>Frozen automated monitor alone</p><span class="contrast-vs" aria-hidden="true">vs</span><p>The same monitor plus qualified security and ML reviewers</p></div>
-      <p class="contrast-q">What does human review add, and what does it cost?</p>
-    </div>
-  </div>
-  <p class="contrasts-foot">Model and task stay fixed within each comparison. Seeded and naturally occurring violations are reported separately, and we measure blind spots the monitor and reviewers share.</p>
-</div>
-        <div class="study-after">
-  <p>Anthropic's analysis of the AISI incident found that editing the model's pre-attack reasoning cut the attack rate from 83% to 13%, which suggests the timing of an intervention matters. We test interventions at those points, such as structured authority summaries at consequential decisions and reviewer prompts that require independent evidence before approval, each scored on detection gained, false alarms added and review time used.</p>
-  <p>A second experiment takes a failure mechanism documented in a public 2026 incident, starting with AISI / Mythos 5, rebuilds the deployment conditions as far as the disclosures allow, lists every departure from them, and tests whether the mechanism recurs and whether our oversight arrangements catch it. Results are mechanism evidence, not claims about the cause of the original incident.</p>
-</div>
-        <!-- Design notes (separable commit): Sasha's proposed reviewer-protocol additions and open questions; not in the founding summary. -->
-<aside class="design-notes" aria-label="Design notes under discussion">
-  <p class="design-notes-label">Design notes under discussion</p>
-  <div class="design-notes-cols">
-    <div>
-      <h3>Reviewer protocol</h3>
-      <ul class="notes">
-        <li>Consider adding prevalence as a further factor, and report how miss rates change with it.</li>
-        <li>Keep reviewers blind to how many violations were seeded.</li>
-        <li>Run long review sessions to capture fatigue.</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Open questions</h3>
-      <ul class="notes">
-        <li>Real-time gating or post-hoc review? Post-hoc review allows paired scoring of the same runs; real-time gating is needed to measure wrongly blocked actions.</li>
-        <li>Should the agent know a human is reviewing?</li>
-        <li>How to check that the framing manipulation worked. No method is yet proven.</li>
-        <li>Monitor access: start from an open-source monitor, release an improved version labs can use, then work toward testing labs' own monitors.</li>
-      </ul>
-    </div>
-  </div>
-</aside>
+        <ul class="factors">
+          <li><span class="pin">A</span><div><h3>Evaluation cues</h3><p>Looks like a test, or looks like real work</p></div></li>
+          <li><span class="pin">B</span><div><h3>Permission boundaries</h3><p>Standard sandbox, or one boundary relaxed</p></div></li>
+          <li><span class="pin">C</span><div><h3>Who reviews</h3><p>Monitor alone, or monitor plus security and ML experts</p></div></li>
+        </ul>
+        <div class="btn-row"><a class="btn btn--ghost" href="research.html#study">Full study design</a></div>
       </div>
     </section>
 
-    <!-- ============ Beat 5: Impact ============ -->
-    <section class="section" id="impact">
+    <!-- 6 · Proof and team -->
+    <section class="screen" id="team">
       <div class="container">
-        <h2>Each finding is written as a claim a lab could truthfully adopt.</h2>
-        <p class="prose">Every report ships with the harness so others can re-run it.</p>
-        <figure class="section-figure flow">
-  <div class="flow-head small" aria-hidden="true"><span>Output</span><span></span><span>Reaches</span><span></span><span>What changes</span></div>
-  <ol class="flow-rows">
-    <li class="flow-row">
-      <div class="flow-cell flow-out" data-label="Output">Oversight Validity Reports + open, Inspect-compatible harness</div>
-      <svg class="flow-arrow" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M2 12h18M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.25"/></svg>
-      <div class="flow-cell flow-reach" data-label="Reaches">Frontier labs and their embedded evaluators, via external-evaluation teams and the AI Evaluator Forum</div>
-      <svg class="flow-arrow" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M2 12h18M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.25"/></svg>
-      <div class="flow-cell flow-change" data-label="What changes">Restricted claims replace unqualified ones in system cards; review policies set on measured miss rates</div>
-    </li>
-    <li class="flow-row">
-      <div class="flow-cell flow-out" data-label="Output">Decision pilot, then reusable reporting templates</div>
-      <svg class="flow-arrow" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M2 12h18M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.25"/></svg>
-      <div class="flow-cell flow-reach" data-label="Reaches">Organisations deploying agents</div>
-      <svg class="flow-arrow" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M2 12h18M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.25"/></svg>
-      <div class="flow-cell flow-change" data-label="What changes">Configurations that reproduce incident mechanisms are restricted; human review placed where it demonstrably catches violations</div>
-    </li>
-    <li class="flow-row">
-      <div class="flow-cell flow-out" data-label="Output">Reporting template offered as a draft standard</div>
-      <svg class="flow-arrow" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M2 12h18M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.25"/></svg>
-      <div class="flow-cell flow-reach" data-label="Reaches">Regulators and standards bodies (UK AISI, EU AI Office, any future US incident board)</div>
-      <svg class="flow-arrow" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M2 12h18M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.25"/></svg>
-      <div class="flow-cell flow-change" data-label="What changes">Incident reporting and conformity assessment ask for deployment-side evidence</div>
-    </li>
-  </ol>
-  <p class="flow-closing">The first year should end with at least one named decision changed, or a recorded reason it was not.</p>
-</figure>
+        <h2>The track record behind it</h2>
+        <p class="proof"><span class="num">NeurIPS 2026</span><span aria-hidden="true">·</span><span class="num">AIES 2026 ×2</span><span aria-hidden="true">·</span><span class="num">Built at UK AISI</span></p>
+        <!-- FLAG: titles and bios from Varad's notes; each person to confirm their own line -->
+        <ul class="people">
+          <li><span class="avatar" aria-hidden="true">VV</span><div><h3>Varad Vishwarupe</h3><p class="role">Chief Executive Officer</p><p>Oxford DPhil, Ethics in AI scholar. Pivotal fellow at UK AISI. NeurIPS and AIES 2026 first author. DeepMind, Amazon, Microsoft.</p></div></li>
+          <li><span class="avatar" aria-hidden="true">SM</span><div><h3>Sasha Mitts</h3><p class="role">Head of Research</p><p>Evaluation researcher, Meta FAIR 2021 to 2025: human evaluation for SAM 2 and CausalVQA, the AILuminate safety benchmark with MLCommons.</p></div></li>
+          <li><span class="avatar" aria-hidden="true">CL</span><div><h3>Cassie Lu</h3><p class="role">Head of Agent Systems</p><p>Software engineer, Google DeepMind London: builds and evaluates Gemini Deep Research. Recused from any work involving Google models.</p></div></li>
+          <li><span class="avatar" aria-hidden="true">IM</span><div><h3>Ishan Maheshwari</h3><p class="role">Head of Engineering</p><p>Built safe-evaluation experimentation infrastructure at Meta; led six engineers shipping agentic workflows with guardrails on Alexa+.</p></div></li>
+        </ul>
+        <p class="adviser small">Adviser: Prof. Sir Nigel Shadbolt</p>
       </div>
     </section>
 
-    <!-- ============ Beat 6: Where we fit ============ -->
-    <section class="section" id="fit">
+    <!-- 7 · Who it's for (dark) -->
+    <section class="screen screen--dark screen--full" id="contact">
       <div class="container">
-        <h2>We plan to work with existing evaluators. None publishes this comparison.</h2>
-        <p class="prose">Each organisation below does related work. The last row is the comparison none of them publishes.</p>
-        <div class="fit section-figure">
-  <table class="table">
-    <thead><tr><th scope="col">Organisation</th><th scope="col">What they do</th><th scope="col">Our relationship</th></tr></thead>
-    <tbody>
-      <tr><td>METR</td><td data-label="What they do">Capability evaluations, frontier risk reports, independent incident investigation</td><td data-label="Our relationship">Partner; their access framework is the standard we build toward for incident work</td></tr>
-      <tr><td>Redwood Research</td><td data-label="What they do">AI control and monitor red-teaming</td><td data-label="Our relationship">Their control protocols are inputs to our oversight arm</td></tr>
-      <tr><td>Apollo Research</td><td data-label="What they do">Scheming and evaluation-awareness evaluations; monitoring and flagged-case handling in labs</td><td data-label="Our relationship">Complementary: we add reviewer-arrangement comparisons on tasks anyone can re-run</td></tr>
-      <tr><td>AVERI</td><td data-label="What they do">Independent audit standards; meta-evaluation of labs' safety tests and decision processes</td><td data-label="Our relationship">Our experiment is a tool an auditor can reuse; possible host</td></tr>
-      <tr><td>Tara Research</td><td data-label="What they do">Measuring agentic honesty; comparing mitigations under a common protocol</td><td data-label="Our relationship">Coordinate on benchmark reuse before building anything overlapping</td></tr>
-      <tr><td>UK AISI</td><td data-label="What they do">Government evaluations; EvalDetectBench; the Inspect framework</td><td data-label="Our relationship">Harness is Inspect-compatible; a natural user of the results</td></tr>
-      <tr class="fit-ovl"><td>OVL</td><td colspan="2">A controlled comparison of what human review adds to a monitor under changing deployment conditions, with its costs</td></tr>
-    </tbody>
-  </table>
-  <p class="prose small fit-after">If an existing organisation turns out to be the better home for this programme, we will propose it as a team inside that organisation. We will test that in the first two months.</p>
-</div>
-      </div>
-    </section>
-
-    <!-- ============ Beat 7a: Plan ============ -->
-    <section class="section" id="plan">
-      <div class="container">
-        <h2>A twelve-month plan, with a seed-funding checkpoint at month three.</h2>
-        <p class="prose">Each step depends on evidence, delivery and demand, not on whether a result is alarming.</p>
-        <div class="plan section-figure">
-  <ol class="plan-steps">
-    <li class="plan-step"><span class="plan-dot" aria-hidden="true"></span><h3 class="plan-label">Months 0–2</h3><p>Team in post; recorded conversations with at least three adjacent organisations; reviewer recruitment pilot</p></li>
-    <li class="plan-step plan-gate"><span class="plan-dot" aria-hidden="true"></span><h3 class="plan-label">Month 3 · Seed checkpoint</h3><p>Working pilot: one model, two configurations, about 20 reviewers. Precision simulation; a named decision owner agreed. If these hold, apply for seed funding.</p></li>
-    <li class="plan-step"><span class="plan-dot" aria-hidden="true"></span><h3 class="plan-label">Month 6</h3><p>Open harness and first Oversight Validity Report</p></li>
-    <li class="plan-step"><span class="plan-dot" aria-hidden="true"></span><h3 class="plan-label">Month 9</h3><p>Incident-inspired experiment; second-model or held-out-task check</p></li>
-    <li class="plan-step"><span class="plan-dot" aria-hidden="true"></span><h3 class="plan-label">Month 12</h3><p>Final report, versioned release, replication account, decision-pilot record</p></li>
-  </ol>
-</div>
-      </div>
-    </section>
-
-    <!-- ============ Beat 7b: Team ============ -->
-    <section class="section" id="team">
-      <div class="container">
-        <h2>Team</h2>
-        <div class="team">
-  <p class="small team-intro">Team as proposed for the pre-seed application; roles and commitments are still being confirmed.</p>
-  <h3 class="team-group-title">Founding members</h3>
-  <ul class="team-grid">
-    <li class="team-entry"><p class="team-name">Varad</p><p class="team-focus">Founder and Executive Director: research direction, adoption, organisation-building</p><p class="team-bg">DPhil Computer Science, University of Oxford; previously Microsoft Azure ML, Amazon Alexa AI, Google DeepMind</p></li>
-    <li class="team-entry"><p class="team-name">Ishan</p><p class="team-focus">Research engineering: harness and experiment infrastructure</p><p class="team-bg">Engineering at Meta, Microsoft and Amazon</p></li>
-    <li class="team-entry"><!-- Sasha: role label is the PDF wording; edit as needed --><p class="team-name">Sasha</p><p class="team-focus">Evaluation design and research</p><p class="team-bg">Previously Meta FAIR; drafted the experimental design for the evaluation-framing study</p></li>
-    <li class="team-entry"><!-- FLAG: Cassie to consent to listing --><p class="team-name">Cassie</p><p class="team-bg">Google DeepMind; would contribute alongside her current role; focus to be agreed</p></li>
-    <li class="team-entry"><p class="team-name">Meshari</p><p class="team-focus">Chief Operating Officer or adviser (to be agreed)</p><p class="team-bg">Research collaborator; co-author on NeurIPS 2026 BiAlign work</p></li>
-  </ul>
-  <h3 class="team-group-title">Founding engineers</h3>
-  <ul class="team-grid">
-    <li class="team-entry"><p class="team-name">Ritu</p><p class="team-focus">Agent harness, task suite and evaluation infrastructure</p><p class="team-bg">Amazon</p></li>
-    <li class="team-entry"><p class="team-name">Gururaj</p><p class="team-focus">Experiment pipelines and reproducibility</p><p class="team-bg">Automation Anywhere</p></li>
-    <li class="team-entry"><p class="team-name">Anna</p><p class="team-focus">Monitor integration and analysis</p><p class="team-bg">SPAR research team on scaffold-dependence in AI evaluation</p></li>
-  </ul>
-  <p class="team-open">We are still looking for a full-time technical co-founder to own research engineering alongside the founding members.</p>
-  <h3 class="team-group-title team-work-title">Founder's related work</h3>
-  <ul class="notes team-work">
-    <li>NeurIPS 2026 position paper: deployment-relevant alignment cannot be inferred from model-level evaluation alone</li>
-    <li>AIES 2026: TRACE, an audit protocol for which safety claims hold when models recognise tests</li>
-    <li>UK AISI, Pivotal Research fellowship: agent-based simulation of automated-research degradation</li>
-    <li>Supervision of two SPAR teams running a pre-registered evaluation harness</li>
-  </ul>
-</div>
-      </div>
-    </section>
-
-    <!-- ============ Beat 7c: Contact + Sources ============ -->
-    <section class="section" id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <div class="contact">
-  <p class="lede">We are looking for an evaluator or deployer to run the first decision pilot with us.</p>
-  <p class="contact-link"><!-- TODO: replace with real address --><a href="mailto:TODO-contact@example.org">Email the team</a></p>
-</div>
-        <div class="sources" id="sources">
-  <h3>Sources</h3>
-  <ol class="small">
-    <li><a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/" target="_blank" rel="noopener">METR and Redwood: OpenAI / Hugging Face investigation</a></li>
-    <li><a href="https://www.un.org/independent-international-scientific-panel-ai/en/thematic-briefs/ai-agents-misalignment-risks" target="_blank" rel="noopener">UN Scientific Panel brief on the OpenAI / Hugging Face incident</a></li>
-    <li><a href="https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident" target="_blank" rel="noopener">UK AISI: alignment failures in AISI's incident</a></li>
-    <li><a href="https://aiweekly.co/alerts/claude-mythos-5-took-unsanctioned-actions-in-9-of-43-aisi-runs" target="_blank" rel="noopener">Mythos 5 in 9 of 43 AISI runs, summary of Anthropic's assessment</a></li>
-    <li><a href="https://www.metirai.com/blog/metr-redwood-openai-internal-agent-monitor-red-team-report-2026" target="_blank" rel="noopener">METR and Redwood red-team of OpenAI's internal monitor</a> <!-- FLAG: not metr.org; confirm primary source --></li>
-    <li><a href="https://arxiv.org/abs/2609.01611" target="_blank" rel="noopener">EvalDetectBench (AISI)</a></li>
-    <li><a href="https://ojs.aaai.org/index.php/AIES/article/view/43338" target="_blank" rel="noopener">The Evaluation Differential (Vishwarupe et al., AIES 2026)</a></li>
-    <li><a href="https://tararesearch.org/research.html" target="_blank" rel="noopener">Tara Research agenda</a></li>
-  </ol>
-</div>
+        <h2>Independent evidence on AI oversight. Talk to us.</h2>
+        <p class="lede">For frontier labs, teams deploying agents, evaluators and governments.</p>
+        <div class="btn-row">
+          <!-- TODO: replace with real address -->
+          <a class="btn btn--primary" href="mailto:TODO-contact@example.org">Email us</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">Oversight Validity Lab · Pre-seed proposal, 2026</div>
+    <div class="container"><svg viewBox="0 0 36 36" aria-hidden="true" class="mark" fill="none"><path d="M20 3H10A7 7 0 0 0 3 10V26A7 7 0 0 0 10 33H26A7 7 0 0 0 33 26V16" stroke="var(--paper)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30.5" cy="5.5" r="3.2" fill="var(--accent)"/></svg><span>Oversight Validity Lab · Proposed independent non-profit</span></div>
   </footer>
+  <script src="main.js" defer></script>
 </body>
 </html>

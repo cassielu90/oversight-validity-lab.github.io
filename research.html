@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research · Oversight Validity Lab</title>
+  <meta name="description" content="Oversight Validity Lab is a proposed independent non-profit measuring how much serious AI-agent misconduct automated monitors and human reviewers miss." />
+  <!-- Confidentiality: keep this draft out of search engines (does not hide the public repo). -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2064%2064%27%3E%3Crect%20width=%2764%27%20height=%2764%27%20rx=%2714%27%20fill=%27%230F1B2D%27/%3E%3Cpath%20d=%27M35%2011H20A9%209%200%200%200%2011%2020V44A9%209%200%200%200%2020%2053H44A9%209%200%200%200%2053%2044V29%27%20fill=%27none%27%20stroke=%27%23F6F5F0%27%20stroke-width=%274.5%27%20stroke-linecap=%27round%27/%3E%3Ccircle%20cx=%2749%27%20cy=%2715%27%20r=%275.5%27%20fill=%27%23D9541E%27/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="draft-bar" role="note">Draft for the Project Tailwind pre-seed application. Not for circulation.</div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Oversight Validity Lab, home"><svg viewBox="0 0 36 36" aria-hidden="true" class="mark" fill="none"><path d="M20 3H10A7 7 0 0 0 3 10V26A7 7 0 0 0 10 33H26A7 7 0 0 0 33 26V16" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30.5" cy="5.5" r="3.2" fill="var(--accent)"/></svg><span class="brand-word">Oversight Validity Lab</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="research.html">Research</a>
+        <a href="index.html#team">Team</a>
+        <a href="index.html#contact">Talk to us</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+<div class="screen research-intro">
+  <div class="container">
+    <p class="eyebrow">Research</p>
+    <h1>How we measure oversight</h1>
+    <p class="lede">Labs report how much agent activity a monitor sees. We measure how much serious misconduct the monitor and its reviewers miss, and how that changes between test-like and deployment-like conditions.</p>
+  </div>
+</div>
+
+<section class="screen research-section" id="study" aria-labelledby="study-h">
+  <div class="container">
+    <h2 id="study-h">The first study</h2>
+    <div class="research-prose">
+      <p>Agents work on contained software-engineering and AI-research tasks with explicit authority rules and outcomes we can check independently. Third-party services are simulated, and the design will be pre-registered.</p>
+      <p>Serious violations look like editing a protected evaluation file, quietly changing a results summary, or reaching for a resource outside the granted scope.</p>
+    </div>
+
+    <h3>What we vary</h3>
+    <table class="table research-table">
+      <thead><tr><th scope="col">Factor</th><th scope="col">Condition 1</th><th scope="col">Condition 2</th><th scope="col">Question</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Factor"><span class="research-factor"><span class="pin">A</span> Evaluation cues</span></td><td data-label="Condition 1">Recognised-test framing</td><td data-label="Condition 2">Deployment-continuous framing</td><td data-label="Question">Do the results change when the task stops looking like a test?</td></tr>
+        <tr><td data-label="Factor"><span class="research-factor"><span class="pin">B</span> Permission boundaries</span></td><td data-label="Condition 1">Baseline sandbox</td><td data-label="Condition 2">One relaxed permission or approval boundary</td><td data-label="Question">What changes when one boundary is relaxed?</td></tr>
+        <tr><td data-label="Factor"><span class="research-factor"><span class="pin">C</span> Who reviews</span></td><td data-label="Condition 1">Frozen automated monitor alone</td><td data-label="Condition 2">The same monitor plus security and ML reviewers</td><td data-label="Question">What do reviewers catch that the monitor missed, and at what cost?</td></tr>
+      </tbody>
+    </table>
+    <p class="small research-note">The model and task stay fixed within each comparison.</p>
+
+    <h3>What we measure</h3>
+    <ul class="research-measures">
+      <li>Serious violations attempted</li>
+      <li>Missed by the monitor</li>
+      <li>Missed or approved by reviewers</li>
+      <li>Benign actions wrongly blocked</li>
+      <li>Reviewer time and cost</li>
+      <li>Blind spots the monitor and reviewers share</li>
+    </ul>
+    <p class="small research-note">Seeded and naturally occurring violations are reported separately.</p>
+
+    <!-- Design notes (separable): Sasha's proposed additions; not in the founding summary. -->
+    <div class="design-notes">
+      <h3>Design notes in progress</h3>
+      <ul>
+        <li>Varying how often violations appear, and reporting miss rates at each level.</li>
+        <li>Keeping reviewers blind to how many violations were seeded.</li>
+        <li>Longer review sessions, to see how fatigue affects catch rates.</li>
+        <li>Real-time gating or post-hoc review: post-hoc allows paired scoring of the same runs, real-time shows what blocking costs.</li>
+        <li>Whether the agent should know a human is reviewing.</li>
+        <li>How to check that the framing works. No proven method exists yet.</li>
+        <li>Monitor access: start with an open-source monitor, release an improved version labs can use, then test labs' own monitors.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="screen screen--paper2 research-section" id="mitigations" aria-labelledby="mitigations-h">
+  <div class="container">
+    <h2 id="mitigations-h">Mitigations</h2>
+    <div class="research-prose">
+      <p>In Anthropic's analysis of the AISI incident, editing the model's pre-attack reasoning cut the attack rate from 83% to 13%. That suggests timing matters, so we test interventions at consequential decision points, such as structured authority summaries and reviewer prompts that require independent evidence before approval. Each is scored on detection gained, false alarms added and review time used.</p>
+    </div>
+  </div>
+</section>
+
+<section class="screen research-section" id="incident" aria-labelledby="incident-h">
+  <div class="container">
+    <h2 id="incident-h">Rebuilding an incident</h2>
+    <div class="research-prose">
+      <p>We take a failure mechanism from a public 2026 incident, starting with AISI / Mythos 5, rebuild its deployment conditions as closely as the disclosures allow, and test whether the mechanism recurs and whether our oversight catches it. This tells us about the mechanism, not about what caused the original incident.</p>
+    </div>
+  </div>
+</section>
+
+<section class="screen screen--paper2 research-section" id="impact" aria-labelledby="impact-h">
+  <div class="container">
+    <h2 id="impact-h">Who changes what</h2>
+    <table class="table research-table">
+      <thead><tr><th scope="col">What we ship</th><th scope="col">Who uses it</th><th scope="col">What changes</th></tr></thead>
+      <tbody>
+        <tr><td data-label="What we ship">Reports and an open, Inspect-compatible harness</td><td data-label="Who uses it">Frontier labs and their evaluators, via external-evaluation teams and the AI Evaluator Forum</td><td data-label="What changes">Qualified claims replace sweeping ones in system cards, and review policies are set from measured miss rates</td></tr>
+        <tr><td data-label="What we ship">A decision pilot, then reusable reporting templates</td><td data-label="Who uses it">Organisations deploying agents</td><td data-label="What changes">Setups that reproduce incident mechanisms are restricted, and human review goes where it catches violations</td></tr>
+        <tr><td data-label="What we ship">A reporting template, offered as a draft standard</td><td data-label="Who uses it">Regulators and standards bodies (UK AISI, EU AI Office, any future US incident board)</td><td data-label="What changes">Incident reporting and conformity assessment ask for evidence from deployment conditions</td></tr>
+      </tbody>
+    </table>
+    <p class="research-closing">Year one should end with at least one named decision changed, or a recorded reason it was not.</p>
+  </div>
+</section>
+
+<section class="screen research-section" id="landscape" aria-labelledby="landscape-h">
+  <div class="container">
+    <h2 id="landscape-h">What others test, and what we add</h2>
+    <table class="table research-table">
+      <thead><tr><th scope="col">Organisation</th><th scope="col">What they test</th><th scope="col">What we add</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Organisation">METR</td><td data-label="What they test">Capabilities, frontier risk, independent incident investigation</td><td data-label="What we add">Controlled measures of what monitors and reviewers miss; we build toward METR's access framework for incident work</td></tr>
+        <tr><td data-label="Organisation">Redwood Research</td><td data-label="What they test">AI control protocols and monitor red-teaming</td><td data-label="What we add">Their control protocols are inputs to our oversight arm; we add human-reviewer comparisons</td></tr>
+        <tr><td data-label="Organisation">Apollo Research</td><td data-label="What they test">Scheming and evaluation awareness; flagged-case handling in labs</td><td data-label="What we add">Reviewer-arrangement comparisons on tasks anyone can re-run</td></tr>
+        <tr><td data-label="Organisation">AVERI</td><td data-label="What they test">Audit standards; meta-evaluation of labs' safety tests</td><td data-label="What we add">A reusable experiment auditors can run; a possible host</td></tr>
+        <tr><td data-label="Organisation">Tara Research</td><td data-label="What they test">Agentic honesty; mitigations under a common protocol</td><td data-label="What we add">We coordinate on benchmark reuse before building anything overlapping</td></tr>
+        <tr><td data-label="Organisation">UK AISI</td><td data-label="What they test">Government evaluations; EvalDetectBench; the Inspect framework</td><td data-label="What we add">An Inspect-compatible harness; AISI is a natural user of the results</td></tr>
+        <!-- TODO (Varad): Sampura Research | what they test | what we add -->
+      </tbody>
+    </table>
+    <p class="small research-note">If an existing organisation turns out to be the better home for this work, we'll propose running it as a team inside that organisation, and test that in the first two months.</p>
+  </div>
+</section>
+
+<section class="screen screen--paper2 research-section" id="plan" aria-labelledby="plan-h">
+  <div class="container">
+    <h2 id="plan-h">The first twelve months</h2>
+    <p class="lede">A month-3 checkpoint decides whether we apply for seed funding.</p>
+    <ol class="research-steps">
+      <li><span class="research-step-label">Months 0–2</span><span class="research-step-text">Team in post, reviewer recruitment pilot, conversations with at least three adjacent organisations.</span></li>
+      <li class="research-checkpoint"><span class="research-step-label">Month 3 · Seed checkpoint</span><span class="research-step-text">Working pilot: one model, two configurations, about 20 reviewers. Precision simulation and a named decision owner. If these hold, apply for seed.</span></li>
+      <li><span class="research-step-label">Month 6</span><span class="research-step-text">Open harness and the first Oversight Validity Report.</span></li>
+      <li><span class="research-step-label">Month 9</span><span class="research-step-text">Incident-inspired experiment; check on a second model or held-out tasks.</span></li>
+      <li><span class="research-step-label">Month 12</span><span class="research-step-text">Final report, versioned release, replication account and decision-pilot record.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="screen research-section" id="sources" aria-labelledby="sources-h">
+  <div class="container">
+    <h2 id="sources-h">Sources</h2>
+    <ol class="small research-sources">
+      <li><a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/" target="_blank" rel="noopener">METR and Redwood: OpenAI / Hugging Face investigation</a></li>
+      <li><a href="https://www.un.org/independent-international-scientific-panel-ai/en/thematic-briefs/ai-agents-misalignment-risks" target="_blank" rel="noopener">UN Scientific Panel brief on the OpenAI / Hugging Face incident</a></li>
+      <li><a href="https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident" target="_blank" rel="noopener">UK AISI: alignment failures in AISI's incident</a></li>
+      <li><a href="https://aiweekly.co/alerts/claude-mythos-5-took-unsanctioned-actions-in-9-of-43-aisi-runs" target="_blank" rel="noopener">Mythos 5 in 9 of 43 AISI runs, summary of Anthropic's assessment</a></li>
+      <li><a href="https://www.metirai.com/blog/metr-redwood-openai-internal-agent-monitor-red-team-report-2026" target="_blank" rel="noopener">METR and Redwood red-team of OpenAI's internal monitor</a> <!-- FLAG: not metr.org; confirm primary source --></li>
+      <li><a href="https://arxiv.org/abs/2609.01611" target="_blank" rel="noopener">EvalDetectBench (AISI)</a></li>
+      <li><a href="https://ojs.aaai.org/index.php/AIES/article/view/43338" target="_blank" rel="noopener">The Evaluation Differential (Vishwarupe et al., AIES 2026)</a></li>
+      <li><a href="https://tararesearch.org/research.html" target="_blank" rel="noopener">Tara Research agenda</a></li>
+    </ol>
+  </div>
+</section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><svg viewBox="0 0 36 36" aria-hidden="true" class="mark" fill="none"><path d="M20 3H10A7 7 0 0 0 3 10V26A7 7 0 0 0 10 33H26A7 7 0 0 0 33 26V16" stroke="var(--paper)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30.5" cy="5.5" r="3.2" fill="var(--accent)"/></svg><span>Oversight Validity Lab · Proposed independent non-profit</span></div>
+  </footer>
+  <script src="main.js" defer></script>
+</body>
+</html>
