@@ -138,7 +138,7 @@ svg text { font-family: var(--font-body); fill: var(--ink); }
 .hero .fig-mobile { display: block; }
 .hero .split { align-items: center; }
 @media (min-width: 900px) { .hero .split { grid-template-columns: minmax(0, 1.35fr) minmax(358px, 0.8fr); } }
-.hero h1 { font-size: clamp(2.75rem, 5vw, 4rem); max-width: 13ch; }
+.hero h1 { font-size: clamp(2.5rem, 4.6vw, 3.75rem); max-width: 16ch; }
 h2 + .lede { margin-top: 20px; }
 .hero-sub { margin-top: 24px; }
 .hero .pipeline { max-width: 480px; width: 100%; justify-self: end; }
